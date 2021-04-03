@@ -1,4 +1,4 @@
-package sample;
+package main;
 
 public class Coffee extends MenuItem implements Customizable {
 
