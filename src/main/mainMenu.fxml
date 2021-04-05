@@ -6,7 +6,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="415.0" prefWidth="619.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.MainMenuController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="415.0" prefWidth="619.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.MainMenuController">
    <children>
       <Text layoutX="159.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RU Café" textAlignment="CENTER" wrappingWidth="300.13671875">
          <font>
@@ -14,13 +14,12 @@
          </font>
       </Text>
       <ComboBox fx:id="addToOrderComboBox" layoutX="67.0" layoutY="166.0" prefHeight="39.0" prefWidth="184.0" />
-      <ComboBox fx:id="seeDetailsComboBox" layoutX="368.0" layoutY="166.0" prefHeight="39.0" prefWidth="184.0" />
       <Button fx:id="addToOrderButton" layoutX="96.0" layoutY="228.0" mnemonicParsing="false" onAction="#addToOrder" prefHeight="39.0" prefWidth="126.0" text="Add to Order">
          <font>
             <Font name="Georgia" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="seeDetailsButton" layoutX="396.0" layoutY="228.0" mnemonicParsing="false" onAction="#seeDetails" prefHeight="39.0" prefWidth="126.0" text="See Details">
+      <Button fx:id="viewCurrentOrderButton" layoutX="396.0" layoutY="166.0" mnemonicParsing="false" onAction="#viewCurrentOrder" prefHeight="39.0" prefWidth="126.0" text="View Current Order">
          <font>
             <Font name="Georgia" size="12.0" />
          </font>
@@ -35,10 +34,10 @@
             <Font name="Georgia" size="18.0" />
          </font>
       </Text>
-      <Text layoutX="368.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="See Details:" wrappingWidth="167.13671875">
+      <Button fx:id="viewAllOrdersButton" layoutX="396.0" layoutY="228.0" mnemonicParsing="false" onAction="#viewAllOrders" prefHeight="39.0" prefWidth="126.0" text="View All Orders">
          <font>
-            <Font name="Georgia" size="18.0" />
+            <Font name="Georgia" size="12.0" />
          </font>
-      </Text>
+      </Button>
    </children>
 </Pane>

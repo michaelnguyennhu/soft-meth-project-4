@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.CurrentOrderDetailController">
+   <children>
+      <ListView fx:id="orderList" layoutX="12.0" layoutY="58.0" onMouseClicked="#update" prefHeight="283.0" prefWidth="576.0" />
+      <Text layoutX="12.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order Details" textAlignment="CENTER" wrappingWidth="575.9999871253967">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Text>
+      <Button fx:id="placeOrderButton" layoutX="367.0" layoutY="352.0" mnemonicParsing="false" onAction="#placeOrder" prefHeight="34.0" prefWidth="219.0" text="Place Order" />
+      <Button fx:id="mainMenuButton" layoutX="12.0" layoutY="352.0" mnemonicParsing="false" onAction="#backToMainMenu" prefHeight="34.0" prefWidth="123.0" text="Main Menu" />
+      <Button fx:id="removeSelectedButton" layoutX="146.0" layoutY="352.0" mnemonicParsing="false" onAction="#removeSelected" prefHeight="34.0" prefWidth="167.0" text="Remove Selected" />
+   </children>
+</Pane>

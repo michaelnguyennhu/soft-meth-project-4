@@ -21,8 +21,6 @@ public class MainMenuController {
 
     private static final int ORDER_DONUTS = 0;
     private static final int ORDER_COFFEE = 1;
-    private static final int CURRENT_ORDER = 0;
-    private static final int USER_ORDERS = 1;
     private MenuItem currentMenuItem;
     private float totalOrderCost;
     private float currentMenuItemCost;
@@ -30,15 +28,12 @@ public class MainMenuController {
 
     @FXML
     private ComboBox addToOrderComboBox;
-    @FXML
-    private ComboBox seeDetailsComboBox;
 
     public void start(Stage primaryStage) throws Exception{
         storeOrders = new StoreOrders();
         currentOrder = new Order(storeOrders.getNumOrdersInHistory());
 
         addToOrderComboBox.getItems().addAll("Order Donuts", "Order Coffee");
-        seeDetailsComboBox.getItems().addAll("Current Order", "Orders Placed by User");
 
 
         this.primaryStage = primaryStage;
@@ -52,7 +47,9 @@ public class MainMenuController {
         return this.currentOrder;
     }
 
-    public void addToOrder() throws Exception{
+    public void addToOrder() {
+
+        try{
 
         if (addToOrderComboBox.getSelectionModel().getSelectedIndex() == ORDER_DONUTS){
 
@@ -75,8 +72,7 @@ public class MainMenuController {
             secondaryStage.show();
 
 
-            addToOrderComboBox.getSelectionModel().clearSelection();
-            seeDetailsComboBox.getSelectionModel().clearSelection();
+            //addToOrderComboBox.getSelectionModel().clearSelection();
 
         }
         else if (addToOrderComboBox.getSelectionModel().getSelectedIndex() == ORDER_COFFEE){
@@ -100,37 +96,45 @@ public class MainMenuController {
             secondaryStage.show();
 
 
-            addToOrderComboBox.getSelectionModel().clearSelection();
-            seeDetailsComboBox.getSelectionModel().clearSelection();
+            //addToOrderComboBox.getSelectionModel().clearSelection();
         }
         else {
             System.out.println("This will bring a popup saying to select an item to add");
         }
 
-    }
-
-    public void seeDetails(){
-
-        if (seeDetailsComboBox.getSelectionModel().getSelectedIndex() == CURRENT_ORDER){
-            System.out.println("See Current Order");
-
-
-            addToOrderComboBox.getSelectionModel().clearSelection();
-            seeDetailsComboBox.getSelectionModel().clearSelection();
+        }catch(Exception e){
+            //ERROR
         }
-        else if (seeDetailsComboBox.getSelectionModel().getSelectedIndex() == USER_ORDERS) {
-            System.out.println("See All User Orders");
-
-
-            addToOrderComboBox.getSelectionModel().clearSelection();
-            seeDetailsComboBox.getSelectionModel().clearSelection();
-        }
-        else {
-            System.out.println("This will bring a popup saying to select an item to add");
-        }
-
-
     }
 
 
+    public void viewAllOrders(){
+
+    }
+
+    public void viewCurrentOrder(){
+        try{
+
+            Stage secondaryStage = new Stage();
+
+            secondaryStage.initModality(Modality.APPLICATION_MODAL);
+
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/main/currentOrderDetail.fxml"));
+            Pane root = loader.load();
+
+            OrderCoffeeController controller = loader.getController();
+            controller.start(secondaryStage, this);
+            OrderCoffeeController._instance = controller;
+
+            Scene scene = new Scene(root);
+            secondaryStage.setScene(scene);
+            secondaryStage.setTitle("Current Order Details");
+            secondaryStage.setResizable(false);
+            secondaryStage.show();
+
+        }catch(Exception e){
+            //ERROR
+        }
+    }
 }
