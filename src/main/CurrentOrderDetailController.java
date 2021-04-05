@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class CurrentOrderDetailController
@@ -14,6 +15,13 @@ public class CurrentOrderDetailController
     public ListView orderList;
     @FXML
     public Button removeSelectedButton;
+
+    @FXML
+    public Text subtotalText;
+    @FXML
+    public Text taxText;
+    @FXML
+    public Text totalText;
 
     private Stage primaryStage;
 
@@ -27,7 +35,7 @@ public class CurrentOrderDetailController
 
         //This may not be required
         orderList.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-
+        orderList.getItems().add("Test");
         update();
     }
 
@@ -44,6 +52,10 @@ public class CurrentOrderDetailController
     public void update() {
         ObservableList selectedOrders = orderList.getSelectionModel().getSelectedIndices();
         removeSelectedButton.setDisable(!(selectedOrders.size() > 0));
+
+        subtotalText.setText("Subtotal - $0.00");
+        taxText.setText("Tax - $0.00");
+        taxText.setText("Total - $0.00");
     }
 
     @FXML

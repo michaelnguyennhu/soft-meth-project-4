@@ -92,21 +92,11 @@ public class OrderCoffeeController {
         }
     }
 
-    protected String toDollars(float amount)
-    {
-        float flooredAmount = ( float ) (Math.floor(Math.round(amount * 100)) / 100);
-
-        DecimalFormat formatter = new DecimalFormat("'$'###,###,###,###,##0.00");
-        formatter.setGroupingSize(3);
-
-
-        return formatter.format(flooredAmount);
-    }
 
     public void changeSubtotalTextField(){
         Float subtotal = getSubtotal();
         if (subtotal != -1f){
-            String newSubtotal = toDollars(subtotal);
+            String newSubtotal = Utility.ToDollars(subtotal);
             subtotalTextField.setText(newSubtotal);
         }
     }
