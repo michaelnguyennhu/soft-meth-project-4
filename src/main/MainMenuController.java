@@ -96,7 +96,8 @@ public class MainMenuController {
             //addToOrderComboBox.getSelectionModel().clearSelection();
         }
         else {
-            System.out.println("This will bring a popup saying to select an item to add");
+            Popup.DisplayError("Select an option to add to the current order.");
+
         }
 
         }catch(Exception e){

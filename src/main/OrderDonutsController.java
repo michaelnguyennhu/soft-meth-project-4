@@ -99,7 +99,7 @@ public class OrderDonutsController {
     public void minusQuantity(){
         int quantity = Integer.parseInt(quantityTextField.getText());
         if (quantity == 0){
-            System.out.println("popup should appear here since quantity can't be negative");
+            Popup.DisplayError("Quantity cannot be negative.");
             return;
         }
         quantity--;
@@ -111,13 +111,13 @@ public class OrderDonutsController {
     public void addToOrder(){
 
         if (donutTypeComboBox.getSelectionModel().isEmpty() || flavorComboBox.getSelectionModel().isEmpty()){
-            System.out.println("Must make donut type AND donut flavor selection popup");
+            Popup.DisplayError("Must select donut type AND donut flavor.");
             return;
         }
         else {
             int quantity = Integer.parseInt(quantityTextField.getText());
             if (quantity == 0){
-                System.out.println("quantity must be greater than 0 popup");
+                Popup.DisplayError("Quantity must be greater than 0.");
                 return;
             }
             else {
@@ -125,8 +125,13 @@ public class OrderDonutsController {
                     Donut donut = new Donut(donutTypeComboBox.getSelectionModel().getSelectedIndex(), flavorComboBox.getSelectionModel().getSelectedIndex());
                     mainMenuController.getCurrentOrder().add(donut);
                 }
+                if (quantity == 1){
+                    Popup.Display("Donuts", "Donut has been added to the current order.");
+                }
+                else {
+                    Popup.Display("Donuts", "Donuts have been added to the current order.");
+                }
 
-                System.out.println("popup that order has been made");
 
                 donutTypeComboBox.getSelectionModel().clearSelection();
                 flavorComboBox.getSelectionModel().clearSelection();

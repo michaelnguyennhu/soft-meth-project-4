@@ -59,7 +59,7 @@ public class OrderCoffeeController {
 
     public void addToOrder(){
         if (sizeComboBox.getSelectionModel().isEmpty()){
-            System.out.println("must select a size");
+            Popup.DisplayError("Must select a size.");
             return;
         }
         else {
