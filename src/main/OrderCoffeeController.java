@@ -9,7 +9,6 @@ import javafx.stage.Stage;
 import java.text.DecimalFormat;
 
 public class OrderCoffeeController {
-    public static OrderCoffeeController _instance;
     private Stage primaryStage;
 
 

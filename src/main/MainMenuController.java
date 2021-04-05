@@ -11,7 +11,6 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class MainMenuController {
-    public static MainMenuController _instance;
     private Stage primaryStage;
 
 
@@ -63,7 +62,6 @@ public class MainMenuController {
 
             OrderDonutsController controller = loader.getController();
             controller.start(secondaryStage, this);
-            OrderDonutsController._instance = controller;
 
             Scene scene = new Scene(root);
             secondaryStage.setScene(scene);
@@ -87,7 +85,6 @@ public class MainMenuController {
 
             OrderCoffeeController controller = loader.getController();
             controller.start(secondaryStage, this);
-            OrderCoffeeController._instance = controller;
 
             Scene scene = new Scene(root);
             secondaryStage.setScene(scene);
@@ -123,9 +120,8 @@ public class MainMenuController {
             loader.setLocation(getClass().getResource("/main/currentOrderDetail.fxml"));
             Pane root = loader.load();
 
-            OrderCoffeeController controller = loader.getController();
+            CurrentOrderDetailController controller = loader.getController();
             controller.start(secondaryStage, this);
-            OrderCoffeeController._instance = controller;
 
             Scene scene = new Scene(root);
             secondaryStage.setScene(scene);
@@ -135,6 +131,7 @@ public class MainMenuController {
 
         }catch(Exception e){
             //ERROR
+            e.printStackTrace();
         }
     }
 }

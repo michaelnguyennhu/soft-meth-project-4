@@ -8,7 +8,6 @@ import javafx.stage.Stage;
 import java.text.DecimalFormat;
 
 public class OrderDonutsController {
-    public static OrderDonutsController _instance;
     private Stage primaryStage;
 
     private MainMenuController mainMenuController;
