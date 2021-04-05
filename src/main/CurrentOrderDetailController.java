@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 
 public class CurrentOrderDetailController
 {
+    private final float TAX = 0.06625f;
 
     @FXML
     public ListView orderList;
@@ -36,6 +37,8 @@ public class CurrentOrderDetailController
         //This may not be required
         orderList.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         orderList.getItems().add("Test");
+        orderList.getItems().add("Test2");
+        orderList.getItems().add("Test3");
         update();
     }
 
@@ -53,9 +56,14 @@ public class CurrentOrderDetailController
         ObservableList selectedOrders = orderList.getSelectionModel().getSelectedIndices();
         removeSelectedButton.setDisable(!(selectedOrders.size() > 0));
 
-        subtotalText.setText("Subtotal - $0.00");
-        taxText.setText("Tax - $0.00");
-        taxText.setText("Total - $0.00");
+        float subtotal = mainMenuController.getCurrentOrder().getPriceTotal();
+        float tax = subtotal * TAX;
+        float total = subtotal + tax;
+
+
+        subtotalText.setText("Subtotal - " + Utility.ToDollars(subtotal));
+        taxText.setText("Tax - " +  Utility.ToDollars(tax));
+        taxText.setText("Total - " + Utility.ToDollars(total));
     }
 
     @FXML
