@@ -11,6 +11,9 @@ public class Donut extends MenuItem {
     private int donutType;
 
     //make variables for the donut flavors
+    private static final int GLAZED = 0;
+    private static final int CHOCOLATE = 1;
+    private static final int VANILLA = 2;
     private int donutFlavor;
 
     public Donut(int chooseType, int chooseFlavor){

@@ -6,7 +6,7 @@ public class Order implements Customizable{
     private MenuItem[] itemsList;
     private int numItems;
 
-    private static final int GROWTH_AMOUNT = 4;
+    private final int GROWTH_AMOUNT = 4;
 
     public Order(int newOrderNumber){
         this.orderNumber = newOrderNumber;
@@ -33,7 +33,7 @@ public class Order implements Customizable{
     private void growOrder(){
         MenuItem[] increasedArr = new MenuItem[itemsList.length + GROWTH_AMOUNT];
 
-        for (int i = 0; i < itemsList.length + GROWTH_AMOUNT; i++){
+        for (int i = 0; i < itemsList.length; i++){
             increasedArr[i] = itemsList[i];
         }
 

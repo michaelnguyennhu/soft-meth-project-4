@@ -8,10 +8,20 @@ public class MenuItem {
     }
 
     public void itemPrice(){
+        if (this instanceof Donut){
+            Donut donut = (Donut) this;
+            donut.itemPrice();
+        }
+        else if (this instanceof Coffee){
+            Coffee coffee = (Coffee) this;
+            coffee.itemPrice();
+
+        }
     }
 
 
     public float getItemPrice(){
+        this.itemPrice();
         return this.price;
     }
 

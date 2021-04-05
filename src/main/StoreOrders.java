@@ -2,7 +2,7 @@ package main;
 
 public class StoreOrders implements Customizable{
 
-    private static final int GROWTH_AMOUNT = 4;
+    private final int GROWTH_AMOUNT = 4;
     private Order[] ordersList;
     private int numOrders;
 
@@ -32,7 +32,7 @@ public class StoreOrders implements Customizable{
     private void growStore(){
         Order[] increasedArr = new Order[ordersList.length + GROWTH_AMOUNT];
 
-        for (int i = 0; i < ordersList.length + GROWTH_AMOUNT; i++){
+        for (int i = 0; i < ordersList.length; i++){
             increasedArr[i] = ordersList[i];
         }
 
@@ -54,6 +54,7 @@ public class StoreOrders implements Customizable{
 
         this.numOrders++;
         this.ordersList[numOrders - 1] = newOrder;
+        this.numOrdersInHistory++;
 
         return true;
 

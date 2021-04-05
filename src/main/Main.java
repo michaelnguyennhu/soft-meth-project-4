@@ -11,7 +11,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/main/MainMenu.fxml"));
+        loader.setLocation(getClass().getResource("/main/mainMenu.fxml"));
         Pane root = loader.load();
 
         MainMenuController controller = loader.getController();
