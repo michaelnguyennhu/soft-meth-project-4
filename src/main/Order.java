@@ -81,4 +81,14 @@ public class Order implements Customizable{
         return true;
     }
 
+    public float getPriceTotal(){
+        float total = 0;
+
+        for(int i = 0 ; i < numItems; i++){
+            total += itemsList[i].getItemPrice();
+        }
+
+        return total;
+    }
+
 }

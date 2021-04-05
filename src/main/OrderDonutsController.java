@@ -61,21 +61,11 @@ public class OrderDonutsController {
         }
     }
 
-    protected String toDollars(float amount)
-    {
-        float flooredAmount = ( float ) (Math.floor(Math.round(amount * 100)) / 100);
-
-        DecimalFormat formatter = new DecimalFormat("'$'###,###,###,###,##0.00");
-        formatter.setGroupingSize(3);
-
-
-        return formatter.format(flooredAmount);
-    }
 
     public void changeSubtotalTextField(){
         Float subtotal = getSubtotal();
         if (subtotal != -1f){
-            String newSubtotal = toDollars(subtotal);
+            String newSubtotal = Utility.ToDollars(subtotal);
             subtotalTextField.setText(newSubtotal);
         }
     }
@@ -136,7 +126,7 @@ public class OrderDonutsController {
                 donutTypeComboBox.getSelectionModel().clearSelection();
                 flavorComboBox.getSelectionModel().clearSelection();
                 quantityTextField.setText("0");
-                subtotalTextField.setText(toDollars(0f));
+                subtotalTextField.setText("$0.00");
             }
         }
 
