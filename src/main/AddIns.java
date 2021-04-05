@@ -2,57 +2,74 @@ package main;
 
 public class AddIns {
 
-    private int cream;
-    private int syrup;
-    private int milk;
-    private int caramel;
-    private int whippedCream;
+    private boolean cream;
+    private boolean syrup;
+    private boolean milk;
+    private boolean caramel;
+    private boolean whippedCream;
 
 
     public AddIns(){
-        this.cream = 0;
-        this.syrup = 0;
-        this.milk = 0;
-        this.caramel = 0;
-        this.whippedCream = 0;
+        this.cream = false;
+        this.syrup = false;
+        this.milk = false;
+        this.caramel = false;
+        this.whippedCream = false;
     }
 
     public int getTotalAddIns(){
-        return (this.cream + this.syrup + this.milk + this.caramel + this.whippedCream);
+        int totalAddIns = 0;
+        if (this.cream){
+            totalAddIns++;
+        }
+        if (this.syrup){
+            totalAddIns++;
+        }
+        if (this.milk){
+            totalAddIns++;
+        }
+        if (this.caramel){
+            totalAddIns++;
+        }
+        if (this.whippedCream){
+            totalAddIns++;
+        }
+
+        return totalAddIns;
     }
 
 
-    public int getCream(){
+    public boolean getCream(){
         return this.cream;
     }
-    public int getSyrup(){
+    public boolean getSyrup(){
         return this.syrup;
     }
-    public int getMilk(){
+    public boolean getMilk(){
         return this.milk;
     }
-    public int getCaramel(){
+    public boolean getCaramel(){
         return this.caramel;
     }
-    public int getWhippedCream(){
+    public boolean getWhippedCream(){
         return this.whippedCream;
     }
 
 
-    public void setCream(int quantity){
-        this.cream = quantity;
+    public void setCream(boolean added){
+        this.cream = added;
     }
-    public void setSyrup(int quantity){
-        this.syrup = quantity;
+    public void setSyrup(boolean added){
+        this.syrup = added;
     }
-    public void setMilk(int quantity){
-        this.milk = quantity;
+    public void setMilk(boolean added){
+        this.milk = added;
     }
-    public void setCaramel(int quantity){
-        this.caramel = quantity;
+    public void setCaramel(boolean added){
+        this.caramel = added;
     }
-    public void setWhippedCream(int quantity){
-        this.whippedCream = quantity;
+    public void setWhippedCream(boolean added){
+        this.whippedCream = added;
     }
 
 

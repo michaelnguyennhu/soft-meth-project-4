@@ -60,10 +60,29 @@ public class Coffee extends MenuItem implements Customizable {
         }
 
         AddIns moreAddIns = (AddIns) obj;
-        this.addIns = moreAddIns;
+
+
+        if (moreAddIns.getCream()){
+            this.addIns.setCream(true);
+        }
+
+        if (moreAddIns.getSyrup()){
+            this.addIns.setSyrup(true);
+        }
+
+        if (moreAddIns.getMilk()){
+            this.addIns.setMilk(true);
+        }
+
+        if (moreAddIns.getCaramel()){
+            this.addIns.setCaramel(true);
+        }
+
+        if (moreAddIns.getWhippedCream()){
+            this.addIns.setWhippedCream(true);
+        }
 
         this.numAddIns = this.addIns.getTotalAddIns();
-
         return true;
     }
 
@@ -76,10 +95,28 @@ public class Coffee extends MenuItem implements Customizable {
         }
 
         AddIns moreAddIns = (AddIns) obj;
-        this.addIns = moreAddIns;
+
+        if (moreAddIns.getCream()){
+            this.addIns.setCream(false);
+        }
+
+        if (moreAddIns.getSyrup()){
+            this.addIns.setSyrup(false);
+        }
+
+        if (moreAddIns.getMilk()){
+            this.addIns.setMilk(false);
+        }
+
+        if (moreAddIns.getCaramel()){
+            this.addIns.setCaramel(false);
+        }
+
+        if (moreAddIns.getWhippedCream()){
+            this.addIns.setWhippedCream(false);
+        }
 
         this.numAddIns = this.addIns.getTotalAddIns();
-
         return true;
     }
 

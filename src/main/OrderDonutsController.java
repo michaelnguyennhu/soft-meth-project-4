@@ -127,10 +127,12 @@ public class OrderDonutsController {
                     mainMenuController.getCurrentOrder().add(donut);
                 }
 
+                System.out.println("popup that order has been made");
+
                 donutTypeComboBox.getSelectionModel().clearSelection();
                 flavorComboBox.getSelectionModel().clearSelection();
-                quantityTextField.setText("" + 0);
-                changeSubtotalTextField();
+                quantityTextField.setText("0");
+                subtotalTextField.setText(toDollars(0f));
             }
         }
 
