@@ -50,6 +50,15 @@ public class Coffee extends MenuItem implements Customizable {
         return this.addIns;
     }
 
+    public void setAddIns(AddIns newAddIns){
+        this.addIns.setCream(newAddIns.getCream());
+        this.addIns.setSyrup(newAddIns.getSyrup());
+        this.addIns.setMilk(newAddIns.getMilk());
+        this.addIns.setCaramel(newAddIns.getCaramel());
+        this.addIns.setWhippedCream(newAddIns.getWhippedCream());
+        this.numAddIns = this.addIns.getTotalAddIns();
+    }
+
 
 
     //add and remove are the same here. lmk if you think of a different way to deal with addins
@@ -135,5 +144,46 @@ public class Coffee extends MenuItem implements Customizable {
             return false;
         }
 
+    }
+    @Override
+    public String toString(){
+        String coffeeString = "";
+
+
+        if (this.size == SHORT ){
+            if (numAddIns == 0){
+                coffeeString = "Short Black Coffee";
+            }
+            else {
+                coffeeString = "Short Coffee:" + this.addIns.toString();
+            }
+        }
+        else if (this.size == TALL){
+            if (numAddIns == 0){
+                coffeeString = "Tall Black Coffee";
+            }
+            else {
+                coffeeString = "Tall Coffee:" + this.addIns.toString();
+            }
+        }
+        else if (this.size == GRANDE){
+            if (numAddIns == 0){
+                coffeeString = "Grande Black Coffee";
+            }
+            else {
+                coffeeString = "Grande Coffee:" + this.addIns.toString();
+            }
+        }
+        else if (this.size == VENTI){
+            if (numAddIns == 0){
+                coffeeString = "Venti Black Coffee";
+            }
+            else {
+                coffeeString = "Venti Coffee:" + this.addIns.toString();
+            }
+        }
+
+
+        return coffeeString;
     }
 }

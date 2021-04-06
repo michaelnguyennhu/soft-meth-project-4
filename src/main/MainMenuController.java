@@ -46,6 +46,10 @@ public class MainMenuController {
         return this.currentOrder;
     }
 
+    public StoreOrders getAllStoreOrders(){
+        return this.storeOrders;
+    }
+
     public void addToOrder() {
 
         try{
@@ -107,7 +111,27 @@ public class MainMenuController {
 
 
     public void viewAllOrders(){
+        try {
+            Stage secondaryStage = new Stage();
 
+            secondaryStage.initModality(Modality.APPLICATION_MODAL);
+
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/main/storeOrderPage.fxml"));
+            Pane root = loader.load();
+
+            StoreOrderPageController controller = loader.getController();
+            controller.start(secondaryStage, this);
+
+            Scene scene = new Scene(root);
+            secondaryStage.setScene(scene);
+            secondaryStage.setTitle("Store Orders Page");
+            secondaryStage.setResizable(false);
+            secondaryStage.show();
+        }
+        catch (Exception e){
+
+        }
     }
 
     public void viewCurrentOrder(){

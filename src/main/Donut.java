@@ -71,5 +71,30 @@ public class Donut extends MenuItem {
         }
     }
 
+    @Override
+    public String toString() {
+        String donutString = "";
 
+        if (this.donutType == YEAST){
+            donutString = "Yeast Donut, ";
+        }
+        else if (this.donutType == CAKE){
+            donutString = "Cake Donut, ";
+        }
+        else if (this.donutType == HOLE){
+            donutString = "Donut Hole, ";
+        }
+
+        if (donutFlavor == GLAZED){
+            donutString = donutString + "Glazed";
+        }
+        else if (donutFlavor == CHOCOLATE){
+            donutString = donutString + "Chocolate";
+        }
+        else if (donutFlavor == VANILLA){
+            donutString = donutString + "Vanilla";
+        }
+
+        return donutString;
+    }
 }

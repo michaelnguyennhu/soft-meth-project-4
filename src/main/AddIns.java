@@ -88,4 +88,26 @@ public class AddIns {
         }
 
     }
+
+    @Override
+    public String toString() {
+        String addInString = "";
+        if (this.cream){
+            addInString = addInString + "Cream:";
+        }
+        if (this.syrup){
+            addInString = addInString + "Syrup:";
+        }
+        if (this.milk){
+            addInString = addInString + "Milk:";
+        }
+        if (this.caramel){
+            addInString = addInString + "Caramel:";
+        }
+        if (this.cream){
+            addInString = addInString + "Cream:";
+        }
+
+        return addInString;
+    }
 }
