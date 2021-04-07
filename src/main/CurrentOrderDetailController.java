@@ -120,6 +120,7 @@ public class CurrentOrderDetailController
 
         mainMenuController.getAllStoreOrders().add(mainMenuController.getCurrentOrder());
         System.out.println(mainMenuController.getCurrentOrder().toString());
+        Popup.Display("Order Placed", "The current order has been placed");
         mainMenuController.newOrder();
 
         ObservableList<MenuItem> menuItems = FXCollections.observableList(mainMenuController.getCurrentOrder().toArrayList());
