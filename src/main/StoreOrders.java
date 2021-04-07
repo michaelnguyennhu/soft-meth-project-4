@@ -23,6 +23,10 @@ public class StoreOrders implements Customizable{
         return this.ordersList;
     }
 
+    public int getNumOrders(){
+        return this.numOrders;
+    }
+
     private int findStore(Order order){
 
         for (int i = 0; i < numOrders; i++){

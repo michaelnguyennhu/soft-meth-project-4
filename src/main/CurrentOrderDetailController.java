@@ -92,6 +92,15 @@ public class CurrentOrderDetailController
 
         mainMenuController.getAllStoreOrders().add(mainMenuController.getCurrentOrder());
         System.out.println(mainMenuController.getCurrentOrder().toString());
+        mainMenuController.newOrder();
+
+        ObservableList<MenuItem> menuItems = FXCollections.observableList(mainMenuController.getCurrentOrder().toArrayList());
+
+        orderList.setCellFactory(listView -> new OrderDetailListCell());
+        orderList.setItems(menuItems);
+
+        update();
+
     }
 
 }

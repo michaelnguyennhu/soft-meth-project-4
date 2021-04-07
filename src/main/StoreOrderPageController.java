@@ -24,11 +24,10 @@ public class StoreOrderPageController {
     }
 
     public void setUpList(){
-        System.out.println("hello");
-        for (int i = 0; i < mainMenuController.getAllStoreOrders().getOrdersList().length; i++){
+        for (int i = 0; i < mainMenuController.getAllStoreOrders().getNumOrders(); i++){
+            System.out.println(i);
             orderList.getItems().add(mainMenuController.getAllStoreOrders().getOrdersList()[i].toString());
         }
-        System.out.println("gets here");
     }
 
     public void backToMainMenu(){
