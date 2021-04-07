@@ -15,7 +15,7 @@ import java.io.FileWriter;
 import java.util.ArrayList;
 
 /**
- * TODO: FILL IN CLASS DESCRIPTIOn
+ * Controller for the Store Order Page GUI.
  *
  * @author Alexander Xie
  * @author Michael Nguyen
@@ -26,6 +26,8 @@ public class StoreOrderPageController
 {
     private final static float TAX = 0.06625f;
     private final static float TAX_MULTIPLIER = 1.06625f;
+
+
     @FXML
     public ListView orderList;
     private MainMenuController mainMenuController;
@@ -39,6 +41,12 @@ public class StoreOrderPageController
     @FXML
     private Button cancelSelectedButton;
 
+    /**
+     * Sets up the stage for the Store Order Page GUI.
+     * Sets up orderList to include the orders in storeOrders.
+     * @param primaryStage PrimaryStage
+     * @param mainMenuData MainMenuController
+     */
     public void start(Stage primaryStage, MainMenuController mainMenuData)
     {
 
@@ -49,6 +57,9 @@ public class StoreOrderPageController
         this.primaryStage = primaryStage;
     }
 
+    /**
+     * Sets up orderList to include all user orders .
+     */
     public void setUpList()
     {
         for ( int i = 0; i < mainMenuController.getAllStoreOrders().getNumOrders(); i++ )
@@ -57,6 +68,7 @@ public class StoreOrderPageController
             orderList.getItems().add("Order number - " + order.getOrderNumber() + " " + combinedMenuItemGroupStrings(generateMenuItemGroups(order.toArrayList())) + " - Total Price: " + Utility.ToDollars(order.getPriceTotal() * (TAX_MULTIPLIER)));
         }
     }
+
 
     public String combinedMenuItemGroupStrings(ArrayList< MenuItemGroup > groups)
     {

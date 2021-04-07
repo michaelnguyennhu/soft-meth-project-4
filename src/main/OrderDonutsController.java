@@ -6,7 +6,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 /**
- * TODO: FILL IN CLASS DESCRIPTIOn
+ * Controller for the GUI that allows the user to order donuts.
  *
  * @author Alexander Xie
  * @author Michael Nguyen
@@ -15,15 +15,7 @@ import javafx.stage.Stage;
 
 public class OrderDonutsController
 {
-    private static final int YEAST = 0;
-    private static final float YEAST_PRICE = 1.39f;
-    private static final int CAKE = 1;
-    private static final float CAKE_PRICE = 1.59f;
-    private static final int HOLE = 2;
-    private static final float HOLE_PRICE = 0.33f;
-    private static final int GLAZED = 0;
-    private static final int CHOCOLATE = 1;
-    private static final int VANILLA = 2;
+
     private Stage primaryStage;
     private MainMenuController mainMenuController;
     @FXML
@@ -35,8 +27,12 @@ public class OrderDonutsController
     @FXML
     private ComboBox flavorComboBox;
 
-
-    public void start(Stage primaryStage, MainMenuController mainMenuData) throws Exception
+    /**
+     * Sets up the options for the donutTypeComboBox and flavorComboBox.
+     * @param primaryStage PrimaryStage
+     * @param mainMenuData MainMenuController
+     */
+    public void start(Stage primaryStage, MainMenuController mainMenuData)
     {
 
         mainMenuController = mainMenuData;
@@ -47,11 +43,19 @@ public class OrderDonutsController
         this.primaryStage = primaryStage;
     }
 
+    /**
+     * Closes the stage that allows for ordering donuts.
+     */
     public void backToMainMenu()
     {
         primaryStage.close();
     }
 
+    /**
+     * Gets the subtotal for the donuts ordered.
+     * @return The subtotal for the donuts that were ordered.
+     *         Returns -1f if the subtotal could not be calculated.
+     */
     public float getSubtotal()
     {
         if ( donutTypeComboBox.getSelectionModel().isEmpty() || flavorComboBox.getSelectionModel().isEmpty() )
@@ -67,7 +71,9 @@ public class OrderDonutsController
         }
     }
 
-
+    /**
+     * Changes subtotalTextField's text to a newly calculated value.
+     */
     public void changeSubtotalTextField()
     {
         Float subtotal = getSubtotal();
@@ -78,17 +84,25 @@ public class OrderDonutsController
         }
     }
 
+    /**
+     * Changes subtotalTextField if donut type has been selected.
+     */
     public void donutTypeChosen()
     {
         changeSubtotalTextField();
     }
 
+    /**
+     * Changes subtotalTextField if donut flavor has been selected.
+     */
     public void flavorChosen()
     {
         changeSubtotalTextField();
     }
 
-
+    /**
+     * Increments the integer in quantityTextField by one.
+     */
     public void addQuantity()
     {
         int quantity = Integer.parseInt(quantityTextField.getText());
@@ -98,6 +112,9 @@ public class OrderDonutsController
         changeSubtotalTextField();
     }
 
+    /**
+     * Decrements the integer in quantityTextField by one.
+     */
     public void minusQuantity()
     {
         int quantity = Integer.parseInt(quantityTextField.getText());
@@ -112,6 +129,9 @@ public class OrderDonutsController
         changeSubtotalTextField();
     }
 
+    /**
+     * Adds the current order to the list of all store orders and resets the stage to the default state.
+     */
     public void addToOrder()
     {
 
