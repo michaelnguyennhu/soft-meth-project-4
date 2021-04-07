@@ -112,6 +112,7 @@ public class Order implements Customizable{
         return arrayList;
     }
 
+    /*
     @Override
     public String toString(){
         MenuItem[] copyOrder = new MenuItem[this.itemsList.length];
@@ -134,7 +135,7 @@ public class Order implements Customizable{
                     count++;
                 }
             }
-            finalString = finalString + "Quantity: " + count + ": " + currentMenuItem.toString() +  ;
+            finalString = finalString + "Quantity: " + count + ": " + currentMenuItem.toString() ;
 
 
             smallerArr = new MenuItem[copyOrder.length - count];
@@ -156,5 +157,5 @@ public class Order implements Customizable{
         }
         return finalString;
 
-    }
+    }*/
 }

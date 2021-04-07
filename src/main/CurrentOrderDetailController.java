@@ -17,21 +17,21 @@ import java.util.*;
 
 public class CurrentOrderDetailController
 {
-    private final float TAX = 0.06625f;
+    private final static float TAX = 0.06625f;
 
     @FXML
-    public ListView orderList;
+    private ListView orderList;
     @FXML
-    public Button removeSelectedButton;
+    private Button removeSelectedButton;
     @FXML
-    public Button placeOrderButton;
+    private Button placeOrderButton;
 
     @FXML
-    public Text subtotalText;
+    private Text subtotalText;
     @FXML
-    public Text taxText;
+    private Text taxText;
     @FXML
-    public Text totalText;
+    private Text totalText;
 
 
 
@@ -119,7 +119,6 @@ public class CurrentOrderDetailController
     public void placeOrder() {
 
         mainMenuController.getAllStoreOrders().add(mainMenuController.getCurrentOrder());
-        System.out.println(mainMenuController.getCurrentOrder().toString());
         mainMenuController.newOrder();
 
         ObservableList<MenuItem> menuItems = FXCollections.observableList(mainMenuController.getCurrentOrder().toArrayList());

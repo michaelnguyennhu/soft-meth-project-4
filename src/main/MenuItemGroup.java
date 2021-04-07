@@ -45,12 +45,12 @@ public class MenuItemGroup
                 detailString += details[i] + ", ";
             }
 
-            detailString.substring(0, detailString.length() - 2);
+            detailString = detailString.substring(0, detailString.length() - 2);
 
-            return itemName + " x" + quantity + " Details - " + detailString +  " Price - " + Utility.ToDollars(totalPrice);
+            return itemName + " x" + quantity + " | Details - " + detailString +  " | Price - " + Utility.ToDollars(totalPrice);
         }
 
-        return itemName + " x" + quantity + " Price - " + Utility.ToDollars(totalPrice);
+        return itemName + " x" + quantity + " | Price - " + Utility.ToDollars(totalPrice);
     }
 
 
