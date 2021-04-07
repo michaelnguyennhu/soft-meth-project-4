@@ -82,20 +82,12 @@ public class Order implements Customizable{
         if (index == -1){
             return false;
         }
-        System.out.println("Found! - " + itemsList[index]);
-
-        for(int i = 0; i < numItems; i++){
-            System.out.println(itemsList[i]);
-        }
 
         for (int i = index + 1; i < numItems; i++){
             itemsList[i - 1] = itemsList[i];
         }
 
 
-        for(int i = 0; i < numItems; i++){
-            System.out.println(itemsList[i]);
-        }
         numItems--;
         return true;
     }
