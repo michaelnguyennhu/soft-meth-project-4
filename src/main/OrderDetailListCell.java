@@ -52,6 +52,8 @@ public class OrderDetailListCell extends ListCell<MenuItem>
             itemNameText.setText(menuItem.toString());
             priceText.setText("Price - " + Utility.ToDollars(menuItem.getItemPrice()));
 
+            addinVBox.getChildren().clear();
+
             String[] details = menuItem.getDetails();
             addinVBox.getChildren().removeAll();
             for(int i = 0; i < details.length; i++){
