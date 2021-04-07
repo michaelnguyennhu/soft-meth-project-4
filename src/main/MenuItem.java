@@ -46,4 +46,19 @@ public class MenuItem {
         }
 
     }
+
+    @Override
+    public String toString() {
+        String menuItemString = "";
+        if (this instanceof Donut){
+            Donut donut = (Donut) this;
+            menuItemString = donut.toString();
+        }
+        else if (this instanceof Coffee){
+            Coffee coffee = (Coffee) this;
+            menuItemString = coffee.toString();
+        }
+
+        return menuItemString;
+    }
 }

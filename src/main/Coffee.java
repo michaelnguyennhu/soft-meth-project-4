@@ -51,6 +51,15 @@ public class Coffee extends MenuItem implements Customizable {
         return this.addIns;
     }
 
+    public void setAddIns(AddIns newAddIns){
+        this.addIns.setCream(newAddIns.getCream());
+        this.addIns.setSyrup(newAddIns.getSyrup());
+        this.addIns.setMilk(newAddIns.getMilk());
+        this.addIns.setCaramel(newAddIns.getCaramel());
+        this.addIns.setWhippedCream(newAddIns.getWhippedCream());
+        this.numAddIns = this.addIns.getTotalAddIns();
+    }
+
 
 
     //add and remove are the same here. lmk if you think of a different way to deal with addins

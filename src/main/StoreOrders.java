@@ -19,6 +19,10 @@ public class StoreOrders implements Customizable{
         return this.numOrdersInHistory;
     }
 
+    public Order[] getOrdersList(){
+        return this.ordersList;
+    }
+
     private int findStore(Order order){
 
         for (int i = 0; i < numOrders; i++){

@@ -20,6 +20,10 @@ public class Order implements Customizable{
         return this.orderNumber;
     }
 
+    public MenuItem[] getItemsList(){
+        return this.itemsList;
+    }
+
 
     private int findOrder(MenuItem menuItem){
 
@@ -116,4 +120,49 @@ public class Order implements Customizable{
         return arrayList;
     }
 
+    @Override
+    public String toString(){
+        MenuItem[] copyOrder = new MenuItem[this.itemsList.length];
+
+        for (int i = 0; i < itemsList.length; i++){
+            copyOrder[i] = itemsList[i];
+        }
+
+        String finalString = "Order Number " + this.orderNumber + ": ";
+
+        int count;
+        MenuItem currentMenuItem;
+        MenuItem[] smallerArr;
+        int index;
+        while (copyOrder[0] != null){
+            count = 0;
+            currentMenuItem = copyOrder[0];
+            for (int i = 0; i < copyOrder.length; i++){
+                if (currentMenuItem.equals(copyOrder[i])){
+                    count++;
+                }
+            }
+            finalString = finalString + "Quantity: " + count + ": " + currentMenuItem.toString() + "; ";
+
+
+            smallerArr = new MenuItem[copyOrder.length - count];
+            index = 0;
+            for (int i = 0; i < copyOrder.length; i++){
+                if (!(currentMenuItem.equals(copyOrder[i]))){
+                    smallerArr[index] = copyOrder[i];
+                    index++;
+                }
+            }
+
+            copyOrder = new MenuItem[smallerArr.length];
+
+            for (int i = 0; i < smallerArr.length; i++){
+                copyOrder[i] = smallerArr[i];
+            }
+
+
+        }
+        return finalString;
+
+    }
 }

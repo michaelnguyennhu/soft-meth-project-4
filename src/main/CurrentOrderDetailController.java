@@ -90,6 +90,8 @@ public class CurrentOrderDetailController
     @FXML
     public void placeOrder() {
 
+        mainMenuController.getAllStoreOrders().add(mainMenuController.getCurrentOrder());
+        System.out.println(mainMenuController.getCurrentOrder().toString());
     }
 
 }

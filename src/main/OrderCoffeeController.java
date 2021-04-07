@@ -64,7 +64,9 @@ public class OrderCoffeeController {
         }
         else {
             coffee.changeSize(sizeComboBox.getSelectionModel().getSelectedIndex());
-            mainMenuController.getCurrentOrder().add(coffee);
+            Coffee newCoffee = new Coffee(coffee.getSize());
+            newCoffee.setAddIns(coffee.getAddIns());
+            mainMenuController.getCurrentOrder().add(newCoffee);
 
 
             coffee = new Coffee(sizeComboBox.getSelectionModel().getSelectedIndex());
@@ -75,6 +77,7 @@ public class OrderCoffeeController {
             caramelCheckBox.setSelected(false);
             whippedCreamCheckBox.setSelected(false);
             changeSubtotalTextField();
+            Popup.Display("Coffee", "A coffee has been added to the current order.");
 
         }
     }
