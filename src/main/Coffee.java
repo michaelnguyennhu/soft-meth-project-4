@@ -1,7 +1,7 @@
 package main;
 
 /**
- * TODO: FILL IN CLASS DESCRIPTIOn
+ * Stores and manages all data for a single coffee.
  *
  * @author Alexander Xie
  * @author Michael Nguyen
@@ -9,19 +9,27 @@ package main;
 
 public class Coffee extends MenuItem implements Customizable
 {
-
+    //Coffee size constants
     private static final int SHORT = 0;
     private static final int TALL = 1;
     private static final int GRANDE = 2;
     private static final int VENTI = 3;
+
+    //Base coffee price
     private static final float SHORT_BLACK = 1.99f;
+    //Increments per coffee
     private static final float NEXT_SIZE_PRICE = 0.50f;
+    //Price for every add in
     private static final float ADDIN_PRICE = 0.20f;
+
     private int size;
     private int numAddIns;
     private final AddIns addIns;
 
-
+    /**
+     * Constructor. Requires the initial size.
+     * @param newSize Size of the coffee (0-3)
+     */
     public Coffee(int newSize)
     {
         super();
@@ -30,6 +38,9 @@ public class Coffee extends MenuItem implements Customizable
         this.addIns = new AddIns();
     }
 
+    /**
+     * Calculates the item price for this coffee.
+     */
     @Override
     public void itemPrice()
     {
@@ -45,38 +56,47 @@ public class Coffee extends MenuItem implements Customizable
         }
     }
 
+    /**
+     * Changes the size of the coffee.
+     * @param newSize Size to change to (0-3)
+     */
     public void changeSize(int newSize)
     {
         this.size = newSize;
     }
 
+    /**
+     * Get the size of the coffee
+     * @return Coffee size (0-3)
+     */
     public int getSize()
     {
         return this.size;
     }
 
+    /**
+     * Get the number of add ins
+     * @return Add in amount
+     */
     public int getNumAddIns()
     {
         return this.numAddIns;
     }
 
+    /**
+     * Get the addins for this coffee.
+     * @return AddIns object
+     */
     public AddIns getAddIns()
     {
         return this.addIns;
     }
 
-    public void setAddIns(AddIns newAddIns)
-    {
-        this.addIns.setCream(newAddIns.getCream());
-        this.addIns.setSyrup(newAddIns.getSyrup());
-        this.addIns.setMilk(newAddIns.getMilk());
-        this.addIns.setCaramel(newAddIns.getCaramel());
-        this.addIns.setWhippedCream(newAddIns.getWhippedCream());
-        this.numAddIns = this.addIns.getTotalAddIns();
-    }
-
-
-    //add and remove are the same here. lmk if you think of a different way to deal with addins
+    /**
+     * Add an addin to this coffee.
+     * @param obj Addin Object
+     * @return Returns true if successfully added.
+     */
     @Override
     public boolean add(Object obj)
     {
@@ -118,6 +138,11 @@ public class Coffee extends MenuItem implements Customizable
     }
 
 
+    /**
+     * Remove the supplied addins from this coffee.
+     * @param obj AddIns Object
+     * @return True if successfully removed
+     */
     @Override
     public boolean remove(Object obj)
     {
@@ -158,6 +183,11 @@ public class Coffee extends MenuItem implements Customizable
         return true;
     }
 
+    /**
+     * Check if this coffee equals another one. Compares size and addins.
+     * @param obj Coffee Object
+     * @return True if the other object is equal.
+     */
     @Override
     public boolean equals(Object obj)
     {
@@ -178,6 +208,10 @@ public class Coffee extends MenuItem implements Customizable
 
     }
 
+    /**
+     * Get a list of the addins from this coffee.
+     * @return List of addins strings.
+     */
     @Override
     public String[] getDetails()
     {
@@ -216,6 +250,10 @@ public class Coffee extends MenuItem implements Customizable
         return addinsDetail;
     }
 
+    /**
+     * Creates string based on size of the coffee.
+     * @return Size + "Coffee".
+     */
     @Override
     public String toString()
     {

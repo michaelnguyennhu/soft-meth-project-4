@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 import java.util.ArrayList;
 
 /**
- * TODO: FILL IN CLASS DESCRIPTIOn
+ * Displays a FX stage for the current order details.
  *
  * @author Alexander Xie
  * @author Michael Nguyen
@@ -19,6 +19,7 @@ import java.util.ArrayList;
 
 public class CurrentOrderDetailController
 {
+    //Tax amount on sales
     private final static float TAX = 0.06625f;
 
     @FXML
@@ -40,6 +41,11 @@ public class CurrentOrderDetailController
 
     private MainMenuController mainMenuController;
 
+    /**
+     * Initializes the current order detail stage. Adds all order items and the layout for each item.
+     * @param primaryStage Primary stage
+     * @param mainMenuData Controller for main menu
+     */
     public void start(Stage primaryStage, MainMenuController mainMenuData)
     {
 
@@ -56,11 +62,17 @@ public class CurrentOrderDetailController
     }
 
 
+    /**
+     * Closes the current stage.
+     */
     public void backToMainMenu()
     {
         primaryStage.close();
     }
 
+    /**
+     * Disables/Enables buttons and updates the prices.
+     */
     @FXML
     public void update()
     {
@@ -81,6 +93,10 @@ public class CurrentOrderDetailController
         totalText.setText("Total - " + Utility.ToDollars(total));
     }
 
+    /**
+     * Generates a array list of menu items grouped by similarity.
+     * @return ArrayList of MenuItemGroup.
+     */
     public ArrayList< MenuItemGroup > generateMenuItemGroups()
     {
         ArrayList< MenuItemGroup > group = new ArrayList<>();
@@ -100,30 +116,40 @@ public class CurrentOrderDetailController
             }
 
 
-            group.add(new MenuItemGroup(menuItems.get(0).toString(), menuItems.get(0).getDetails(), amount, amount * menuItems.get(0).getItemPrice()));
+            group.add(new MenuItemGroup(menuItems.get(0).toString(), menuItems.get(0).getDetails(), amount, amount * menuItems.get(0).getItemPrice(), menuItems.get(0)));
             menuItems.remove(0);
         }
 
         return group;
     }
 
+    /**
+     * Removes the selected item from the order.
+     */
     @FXML
     public void removeSelected()
     {
-        String itemRemovedName = orderList.getSelectionModel().getSelectedItem().toString();
+        MenuItemGroup itemGroup = ( MenuItemGroup ) orderList.getSelectionModel().getSelectedItem();
 
 
         mainMenuController.getCurrentOrder().remove(orderList.getSelectionModel().getSelectedItem());
         orderList.getItems().remove(orderList.getSelectionModel().getSelectedIndex());
 
+        for(int i = 0 ; i < itemGroup.getQuantity(); i++){
+            mainMenuController.getCurrentOrder().remove(itemGroup.getItem());
+        }
+
         orderList.refresh();
 
         update();
-        Popup.Display("Successful Remove", "Removed " + itemRemovedName + " from order!");
+        Popup.Display("Successful Remove", "Removed " + itemGroup.toString() + " from order!");
 
 
     }
 
+    /**
+     * Places the current order, stores it, and creates a new order.
+     */
     @FXML
     public void placeOrder()
     {

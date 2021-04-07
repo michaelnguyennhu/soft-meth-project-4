@@ -1,7 +1,7 @@
 package main;
 
 /**
- * TODO: FILL IN CLASS DESCRIPTIOn
+ * Customizable object interface. Supplied add and remove function.
  *
  * @author Alexander Xie
  * @author Michael Nguyen
@@ -10,7 +10,17 @@ package main;
 
 public interface Customizable
 {
+    /**
+     * Add an object
+     * @param obj - Object to add
+     * @return If succeeded or not.
+     */
     boolean add(Object obj);
 
+    /**
+     * Removes an object
+     * @param obj - Object to remove
+     * @return If succeeded or not.
+     */
     boolean remove(Object obj);
 }

@@ -9,7 +9,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
- * TODO: FILL IN CLASS DESCRIPTIOn
+ * Main Menu Controller FX.
  *
  * @author Alexander Xie
  * @author Michael Nguyen
@@ -18,8 +18,11 @@ import javafx.stage.Stage;
 
 public class MainMenuController
 {
+    //Order index types
     private static final int ORDER_DONUTS = 0;
     private static final int ORDER_COFFEE = 1;
+
+
     private Stage primaryStage;
     private StoreOrders storeOrders;
     private Order currentOrder;
@@ -31,6 +34,11 @@ public class MainMenuController
     @FXML
     private ComboBox addToOrderComboBox;
 
+    /**
+     * Starts the stage and adds the combo box items.
+     * @param primaryStage Primary Stage
+     * @throws Exception If fails creating stage.
+     */
     public void start(Stage primaryStage) throws Exception
     {
         storeOrders = new StoreOrders();
@@ -42,26 +50,43 @@ public class MainMenuController
         this.primaryStage = primaryStage;
     }
 
+    /**
+     * Closes the main menu. Effectively closes the program.
+     */
     public void quitMainMenu()
     {
         primaryStage.close();
     }
 
+    /**
+     * Get the current order object.
+     * @return Order object.
+     */
     public Order getCurrentOrder()
     {
         return this.currentOrder;
     }
 
+    /**
+     * Creates a new order to fill.
+     */
     public void newOrder()
     {
         currentOrder = new Order(storeOrders.getNumOrdersInHistory());
     }
 
+    /**
+     * Gets all the stores order inside a StoreOrders object.
+     * @return StoresOrder object.
+     */
     public StoreOrders getAllStoreOrders()
     {
         return this.storeOrders;
     }
 
+    /**
+     * Launches the ordering menu for the selected ordering page in combo box.
+     */
     public void addToOrder()
     {
 
@@ -125,7 +150,9 @@ public class MainMenuController
         }
     }
 
-
+    /**
+     * Starts the StoreOrderPageController and shows all the orders placed.
+     */
     public void viewAllOrders()
     {
         try
@@ -152,6 +179,10 @@ public class MainMenuController
         }
     }
 
+
+    /**
+     * Starts the current order detail page and shows all order details.
+     */
     public void viewCurrentOrder()
     {
         try

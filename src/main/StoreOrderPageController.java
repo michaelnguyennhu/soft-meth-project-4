@@ -90,7 +90,7 @@ public class StoreOrderPageController
             }
 
 
-            group.add(new MenuItemGroup(menuItems.get(0).toString(), menuItems.get(0).getDetails(), amount, amount * menuItems.get(0).getItemPrice()));
+            group.add(new MenuItemGroup(menuItems.get(0).toString(), menuItems.get(0).getDetails(), amount, amount * menuItems.get(0).getItemPrice(), menuItems.get(0)));
             menuItems.remove(0);
         }
 

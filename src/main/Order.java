@@ -3,7 +3,7 @@ package main;
 import java.util.ArrayList;
 
 /**
- * TODO: FILL IN CLASS DESCRIPTIOn
+ * Store and manages MenuItems for a specific order.
  *
  * @author Alexander Xie
  * @author Michael Nguyen
@@ -18,6 +18,10 @@ public class Order implements Customizable
     private MenuItem[] itemsList;
     private int numItems;
 
+    /**
+     * Constructor. Initiates Array to store menu items.
+     * @param newOrderNumber Order number ID
+     */
     public Order(int newOrderNumber)
     {
         this.orderNumber = newOrderNumber;
@@ -25,17 +29,21 @@ public class Order implements Customizable
         this.numItems = 0;
     }
 
+    /**
+     * Get the order number
+     * @return Order number ID
+     */
     public int getOrderNumber()
     {
         return this.orderNumber;
     }
 
-    public MenuItem[] getItemsList()
-    {
-        return this.itemsList;
-    }
 
-
+    /**
+     * Find an menu item in array.
+     * @param menuItem Item to find
+     * @return Index of item
+     */
     private int findOrder(MenuItem menuItem)
     {
 
@@ -49,7 +57,9 @@ public class Order implements Customizable
         return -1;
     }
 
-
+    /**
+     * Grows the array size by GROWTH_AMOUNT
+     */
     private void growOrder()
     {
         MenuItem[] increasedArr = new MenuItem[itemsList.length + GROWTH_AMOUNT];
@@ -62,6 +72,11 @@ public class Order implements Customizable
         this.itemsList = increasedArr;
     }
 
+    /**
+     * Adds a menu item to the list
+     * @param obj - MenuItem to add
+     * @return If successfully added
+     */
     @Override
     public boolean add(Object obj)
     {
@@ -86,7 +101,11 @@ public class Order implements Customizable
 
     }
 
-
+    /**
+     * Removes a menu item from the order
+     * @param obj - MenuItem to remove
+     * @return If successfully remove.
+     */
     @Override
     public boolean remove(Object obj)
     {
@@ -113,6 +132,10 @@ public class Order implements Customizable
         return true;
     }
 
+    /**
+     * Gets the total price of all menu items.
+     * @return Sum of all menu item's prices
+     */
     public float getPriceTotal()
     {
         float total = 0;
@@ -125,6 +148,10 @@ public class Order implements Customizable
         return total;
     }
 
+    /**
+     * Returns all menu items in array list form.
+     * @return ArrayList of menu items.
+     */
     public ArrayList< MenuItem > toArrayList()
     {
         ArrayList< MenuItem > arrayList = new ArrayList<>();
@@ -137,50 +164,4 @@ public class Order implements Customizable
         return arrayList;
     }
 
-    /*
-    @Override
-    public String toString(){
-        MenuItem[] copyOrder = new MenuItem[this.itemsList.length];
-
-        for (int i = 0; i < itemsList.length; i++){
-            copyOrder[i] = itemsList[i];
-        }
-
-        String finalString = "Order Number " + this.orderNumber + ": ";
-
-        int count;
-        MenuItem currentMenuItem;
-        MenuItem[] smallerArr;
-        int index;
-        while (copyOrder.length > 0 && copyOrder[0] != null){
-            count = 0;
-            currentMenuItem = copyOrder[0];
-            for (int i = 0; i < copyOrder.length; i++){
-                if (currentMenuItem.equals(copyOrder[i])){
-                    count++;
-                }
-            }
-            finalString = finalString + "Quantity: " + count + ": " + currentMenuItem.toString() ;
-
-
-            smallerArr = new MenuItem[copyOrder.length - count];
-            index = 0;
-            for (int i = 0; i < copyOrder.length; i++){
-                if (!(currentMenuItem.equals(copyOrder[i]))){
-                    smallerArr[index] = copyOrder[i];
-                    index++;
-                }
-            }
-
-            copyOrder = new MenuItem[smallerArr.length];
-
-            for (int i = 0; i < smallerArr.length; i++){
-                copyOrder[i] = smallerArr[i];
-            }
-
-
-        }
-        return finalString;
-
-    }*/
 }

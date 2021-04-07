@@ -7,7 +7,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 /**
- * TODO: FILL IN CLASS DESCRIPTIOn
+ * Main entry point for the javaFX program.
  *
  * @author Alexander Xie
  * @author Michael Nguyen
@@ -17,11 +17,20 @@ import javafx.stage.Stage;
 public class Main extends Application
 {
 
+    /**
+     * Main method. Launches the fx.
+     * @param args
+     */
     public static void main(String[] args)
     {
         launch(args);
     }
 
+    /**
+     * Initializes and shows main menu.
+     * @param primaryStage Primary fx stage
+     * @throws Exception If an error occurs starting the FX.
+     */
     @Override
     public void start(Stage primaryStage) throws Exception
     {

@@ -1,7 +1,7 @@
 package main;
 
 /**
- * TODO: FILL IN CLASS DESCRIPTIOn
+ * Menu item. Stores all details required for menu item.
  *
  * @author Alexander Xie
  * @author Michael Nguyen
@@ -12,11 +12,17 @@ public class MenuItem
 {
     protected float price;
 
+    /**
+     * Constructor. Sets price to 0.
+     */
     public MenuItem()
     {
         this.price = 0;
     }
 
+    /**
+     * Calculates the current price of the item.
+     */
     public void itemPrice()
     {
         if ( this instanceof Donut )
@@ -31,18 +37,30 @@ public class MenuItem
         }
     }
 
-
+    /**
+     * Get the current price of the item.
+     * @return Float value dollars of the current item price.
+     */
     public float getItemPrice()
     {
         this.itemPrice();
         return this.price;
     }
 
+    /**
+     * Get an array of strings that contains extra details about item.
+     * @return Array of item details.
+     */
     public String[] getDetails()
     {
         return new String[0];
     }
 
+    /**
+     * Check if this menu item is equal to another, based on instances.
+     * @param obj MenuItem Object
+     * @return If the objects are equal.
+     */
     @Override
     public boolean equals(Object obj)
     {
@@ -63,6 +81,10 @@ public class MenuItem
 
     }
 
+    /**
+     * Gets the string of the menu item if it is either a donut or coffee.
+     * @return ToString() of extended classes.
+     */
     @Override
     public String toString()
     {
