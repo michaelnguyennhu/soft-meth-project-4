@@ -23,6 +23,8 @@ public class CurrentOrderDetailController
     public ListView orderList;
     @FXML
     public Button removeSelectedButton;
+    @FXML
+    public Button placeOrderButton;
 
     @FXML
     public Text subtotalText;
@@ -30,6 +32,8 @@ public class CurrentOrderDetailController
     public Text taxText;
     @FXML
     public Text totalText;
+
+
 
     private Stage primaryStage;
 
@@ -41,7 +45,7 @@ public class CurrentOrderDetailController
 
         this.primaryStage = primaryStage;
 
-        ObservableList<MenuItem> menuItems = FXCollections.observableList(mainMenuController.getCurrentOrder().toArrayList());
+        ObservableList<MenuItemGroup> menuItems = FXCollections.observableList(generateMenuItemGroups());
 
         orderList.setCellFactory(listView -> new OrderDetailListCell());
         orderList.setItems(menuItems);
@@ -61,6 +65,8 @@ public class CurrentOrderDetailController
         ObservableList selectedOrders = orderList.getSelectionModel().getSelectedIndices();
         removeSelectedButton.setDisable(!(selectedOrders.size() > 0));
 
+        placeOrderButton.setDisable(orderList.getItems().size() == 0);
+
         float subtotal = mainMenuController.getCurrentOrder().getPriceTotal();
         float tax = subtotal * TAX;
         float total = subtotal + tax;
@@ -69,6 +75,28 @@ public class CurrentOrderDetailController
         subtotalText.setText("Subtotal - " + Utility.ToDollars(subtotal));
         taxText.setText("Tax - " +  Utility.ToDollars(tax));
         totalText.setText("Total - " + Utility.ToDollars(total));
+    }
+
+    public ArrayList<MenuItemGroup> generateMenuItemGroups(){
+        ArrayList<MenuItemGroup> group = new ArrayList<>();
+        ArrayList<MenuItem> menuItems = mainMenuController.getCurrentOrder().toArrayList();
+
+        while(menuItems.size() > 0){
+            int amount = 1;
+
+            for(int i = menuItems.size() - 1; i > 0; i--){
+                if(menuItems.get(i).equals(menuItems.get(0))){
+                    amount++;
+                    menuItems.remove(i);
+                }
+            }
+
+
+            group.add(new MenuItemGroup(menuItems.get(0).toString(), menuItems.get(0).getDetails(), amount, amount * menuItems.get(0).getItemPrice()));
+            menuItems.remove(0);
+        }
+
+        return group;
     }
 
     @FXML

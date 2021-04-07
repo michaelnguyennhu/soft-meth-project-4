@@ -35,7 +35,6 @@ public class Coffee extends MenuItem implements Customizable {
     }
 
     public void changeSize(int newSize){
-        System.out.println(this.size + " " + newSize);
         this.size = newSize;
     }
 

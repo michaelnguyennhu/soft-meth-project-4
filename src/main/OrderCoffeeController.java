@@ -64,9 +64,7 @@ public class OrderCoffeeController {
         }
         else {
             coffee.changeSize(sizeComboBox.getSelectionModel().getSelectedIndex());
-            Coffee newCoffee = new Coffee(coffee.getSize());
-            newCoffee.setAddIns(coffee.getAddIns());
-            mainMenuController.getCurrentOrder().add(newCoffee);
+            mainMenuController.getCurrentOrder().add(coffee);
 
 
             coffee = new Coffee(sizeComboBox.getSelectionModel().getSelectedIndex());

@@ -9,7 +9,7 @@ import javafx.scene.text.Text;
 
 import java.io.IOException;
 
-public class OrderDetailListCell extends ListCell<MenuItem>
+public class OrderDetailListCell extends ListCell<MenuItemGroup>
 {
     @FXML
     private Text itemNameText;
@@ -30,7 +30,7 @@ public class OrderDetailListCell extends ListCell<MenuItem>
 
 
     @Override
-    protected void updateItem(MenuItem menuItem, boolean b)
+    protected void updateItem(MenuItemGroup menuItem, boolean b)
     {
 
         super.updateItem(menuItem, b);
@@ -49,8 +49,8 @@ public class OrderDetailListCell extends ListCell<MenuItem>
                 }
 
             }
-            itemNameText.setText(menuItem.toString());
-            priceText.setText("Price - " + Utility.ToDollars(menuItem.getItemPrice()));
+            itemNameText.setText(menuItem.getItemName() + " x" + menuItem.getQuantity());
+            priceText.setText("Price - " + Utility.ToDollars(menuItem.getTotalPrice()));
 
             addinVBox.getChildren().clear();
 
