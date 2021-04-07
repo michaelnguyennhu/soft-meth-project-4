@@ -10,7 +10,7 @@ import javafx.scene.text.Text;
 import java.io.IOException;
 
 /**
- * TODO: FILL IN CLASS DESCRIPTIOn
+ * ListCell for order details.
  *
  * @author Alexander Xie
  * @author Michael Nguyen
@@ -37,6 +37,11 @@ public class OrderDetailListCell extends ListCell< MenuItemGroup >
     private FXMLLoader fxmlLoader;
 
 
+    /**
+     * Updates all fields for the layout of this ListCell
+     * @param menuItem Item to display
+     * @param b Default parameter.
+     */
     @Override
     protected void updateItem(MenuItemGroup menuItem, boolean b)
     {

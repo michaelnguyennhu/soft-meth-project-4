@@ -24,7 +24,9 @@ import java.util.ArrayList;
 
 public class StoreOrderPageController
 {
+    //Tax values
     private final static float TAX = 0.06625f;
+    //Get price after taxes by multiplying this value.
     private final static float TAX_MULTIPLIER = 1.06625f;
 
 
@@ -69,7 +71,11 @@ public class StoreOrderPageController
         }
     }
 
-
+    /**
+     * Converts an ArrayList of MenuItemGroups into a single string.
+     * @param groups ArrayList of MenuItemGroups
+     * @return String of all menu items.
+     */
     public String combinedMenuItemGroupStrings(ArrayList< MenuItemGroup > groups)
     {
         String concatDescriptions = "";
@@ -84,6 +90,11 @@ public class StoreOrderPageController
         return concatDescriptions;
     }
 
+    /**
+     * Generates a array list of menu items grouped by similarity.
+     * @param menuItems List of menu items to group.
+     * @return ArrayList of MenuItemGroup.
+     */
     public ArrayList< MenuItemGroup > generateMenuItemGroups(ArrayList< MenuItem > menuItems)
     {
         ArrayList< MenuItemGroup > group = new ArrayList<>();
@@ -109,6 +120,9 @@ public class StoreOrderPageController
         return group;
     }
 
+    /**
+     * Closes current UI to go back to main menu.
+     */
     public void backToMainMenu()
     {
         primaryStage.close();
@@ -128,6 +142,9 @@ public class StoreOrderPageController
         totalText.setText("Total - " + Utility.ToDollars(total));
     }
 
+    /**
+     * Cancel the selected order and removes it from all lists.
+     */
     public void cancelSelected()
     {
         Order order = mainMenuController.getAllStoreOrders().getOrdersList()[orderList.getSelectionModel().getSelectedIndex()];
@@ -141,6 +158,10 @@ public class StoreOrderPageController
         Popup.Display("Successful Remove", "Removed " + order.getOrderNumber() + " from order list!");
     }
 
+    /**
+     * Exports all the orders into a text file formatted with all order details and item details.
+     * @param action Action to display file chooser
+     */
     public void exportStoreOrders(ActionEvent action)
     {
         try
