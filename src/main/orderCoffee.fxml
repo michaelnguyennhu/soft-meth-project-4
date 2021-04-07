@@ -1,75 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="444.0" prefWidth="695.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.OrderCoffeeController">
-   <children>
-      <Button layoutX="422.0" layoutY="336.0" mnemonicParsing="false" onAction="#backToMainMenu" prefHeight="46.0" prefWidth="148.0" text="Back to Main Menu">
-         <font>
-            <Font name="Georgia" size="14.0" />
-         </font>
-      </Button>
-      <Button layoutX="413.0" layoutY="250.0" mnemonicParsing="false" onAction="#addToOrder" prefHeight="46.0" prefWidth="166.0" text="Add Coffee to Order">
-         <font>
-            <Font name="Georgia" size="14.0" />
-         </font>
-      </Button>
-      <ComboBox fx:id="sizeComboBox" layoutX="92.0" layoutY="146.0" onAction="#sizeSelected" prefHeight="35.0" prefWidth="172.0" />
-      <Text layoutX="230.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Coffee" wrappingWidth="228.4765625">
-         <font>
-            <Font name="Georgia Bold" size="64.0" />
-         </font>
-      </Text>
-      <TextField fx:id="subtotalTextField" editable="false" layoutX="376.0" layoutY="168.0" prefHeight="46.0" prefWidth="240.0" text="\$0.00">
-         <font>
-            <Font name="Georgia" size="18.0" />
-         </font>
-      </TextField>
-      <CheckBox fx:id="syrupCheckBox" layoutX="92.0" layoutY="271.0" mnemonicParsing="false" onAction="#syrupChecked" prefHeight="27.0" prefWidth="183.0" text="Syrup">
-         <font>
-            <Font name="Georgia" size="18.0" />
-         </font>
-      </CheckBox>
-      <CheckBox fx:id="milkCheckBox" layoutX="92.0" layoutY="304.0" mnemonicParsing="false" onAction="#milkChecked" prefHeight="27.0" prefWidth="183.0" text="Milk">
-         <font>
-            <Font name="Georgia" size="18.0" />
-         </font>
-      </CheckBox>
-      <CheckBox fx:id="caramelCheckBox" layoutX="92.0" layoutY="337.0" mnemonicParsing="false" onAction="#caramelChecked" prefHeight="27.0" prefWidth="183.0" text="Caramel">
-         <font>
-            <Font name="Georgia" size="18.0" />
-         </font>
-      </CheckBox>
-      <CheckBox fx:id="whippedCreamCheckBox" layoutX="92.0" layoutY="370.0" mnemonicParsing="false" onAction="#whippedCreamChecked" prefHeight="27.0" prefWidth="183.0" text="Whipped Cream">
-         <font>
-            <Font name="Georgia" size="18.0" />
-         </font>
-      </CheckBox>
-      <CheckBox fx:id="creamCheckBox" layoutX="92.0" layoutY="237.0" mnemonicParsing="false" onAction="#creamChecked" prefHeight="27.0" prefWidth="183.0" text="Cream">
-         <font>
-            <Font name="Georgia" size="18.0" />
-         </font>
-      </CheckBox>
-      <Text layoutX="111.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose Size:">
-         <font>
-            <Font name="Georgia" size="24.0" />
-         </font>
-      </Text>
-      <Text layoutX="92.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Addins:">
-         <font>
-            <Font name="Georgia" size="24.0" />
-         </font>
-      </Text>
-      <Text layoutX="448.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subtotal:">
-         <font>
-            <Font name="Georgia" size="24.0" />
-         </font>
-      </Text>
-   </children>
+<?import javafx.scene.text.*?>
+<Pane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+      prefHeight="444.0" prefWidth="695.0" xmlns="http://javafx.com/javafx/15.0.1"
+      fx:controller="main.OrderCoffeeController">
+    <children>
+        <Button layoutX="422.0" layoutY="336.0" mnemonicParsing="false" onAction="#backToMainMenu" prefHeight="46.0"
+                prefWidth="148.0" text="Back to Main Menu">
+            <font>
+                <Font name="Georgia" size="14.0"/>
+            </font>
+        </Button>
+        <Button layoutX="413.0" layoutY="250.0" mnemonicParsing="false" onAction="#addToOrder" prefHeight="46.0"
+                prefWidth="166.0" text="Add Coffee to Order">
+            <font>
+                <Font name="Georgia" size="14.0"/>
+            </font>
+        </Button>
+        <ComboBox fx:id="sizeComboBox" layoutX="92.0" layoutY="146.0" onAction="#sizeSelected" prefHeight="35.0"
+                  prefWidth="172.0"/>
+        <Text layoutX="230.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Coffee"
+              wrappingWidth="228.4765625">
+            <font>
+                <Font name="Georgia Bold" size="64.0"/>
+            </font>
+        </Text>
+        <TextField fx:id="subtotalTextField" editable="false" layoutX="376.0" layoutY="168.0" prefHeight="46.0"
+                   prefWidth="240.0" text="\$0.00">
+            <font>
+                <Font name="Georgia" size="18.0"/>
+            </font>
+        </TextField>
+        <CheckBox fx:id="syrupCheckBox" layoutX="92.0" layoutY="271.0" mnemonicParsing="false" onAction="#syrupChecked"
+                  prefHeight="27.0" prefWidth="183.0" text="Syrup">
+            <font>
+                <Font name="Georgia" size="18.0"/>
+            </font>
+        </CheckBox>
+        <CheckBox fx:id="milkCheckBox" layoutX="92.0" layoutY="304.0" mnemonicParsing="false" onAction="#milkChecked"
+                  prefHeight="27.0" prefWidth="183.0" text="Milk">
+            <font>
+                <Font name="Georgia" size="18.0"/>
+            </font>
+        </CheckBox>
+        <CheckBox fx:id="caramelCheckBox" layoutX="92.0" layoutY="337.0" mnemonicParsing="false"
+                  onAction="#caramelChecked" prefHeight="27.0" prefWidth="183.0" text="Caramel">
+            <font>
+                <Font name="Georgia" size="18.0"/>
+            </font>
+        </CheckBox>
+        <CheckBox fx:id="whippedCreamCheckBox" layoutX="92.0" layoutY="370.0" mnemonicParsing="false"
+                  onAction="#whippedCreamChecked" prefHeight="27.0" prefWidth="183.0" text="Whipped Cream">
+            <font>
+                <Font name="Georgia" size="18.0"/>
+            </font>
+        </CheckBox>
+        <CheckBox fx:id="creamCheckBox" layoutX="92.0" layoutY="237.0" mnemonicParsing="false" onAction="#creamChecked"
+                  prefHeight="27.0" prefWidth="183.0" text="Cream">
+            <font>
+                <Font name="Georgia" size="18.0"/>
+            </font>
+        </CheckBox>
+        <Text layoutX="111.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose Size:">
+            <font>
+                <Font name="Georgia" size="24.0"/>
+            </font>
+        </Text>
+        <Text layoutX="92.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Addins:">
+            <font>
+                <Font name="Georgia" size="24.0"/>
+            </font>
+        </Text>
+        <Text layoutX="448.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subtotal:">
+            <font>
+                <Font name="Georgia" size="24.0"/>
+            </font>
+        </Text>
+    </children>
 </Pane>

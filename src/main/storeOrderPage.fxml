@@ -4,42 +4,51 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.StoreOrderPageController">
-   <children>
-      <ListView fx:id="orderList" layoutX="12.0" layoutY="58.0" onMouseClicked="#update" prefHeight="247.0" prefWidth="576.0" />
-      <Text layoutX="12.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Store Orders" textAlignment="CENTER" wrappingWidth="575.9999871253967">
-         <font>
-            <Font size="30.0" />
-         </font>
-      </Text>
-      <HBox alignment="CENTER" layoutX="12.0" layoutY="312.0" prefHeight="29.0" prefWidth="576.0">
-         <children>
-            <Text fx:id="subtotalText" strokeType="OUTSIDE" strokeWidth="0.0" text="Subtotal - $0.00" textAlignment="CENTER" wrappingWidth="173.13671875">
-               <font>
-                  <Font size="22.0" />
-               </font>
-            </Text>
-            <Text fx:id="taxText" strokeType="OUTSIDE" strokeWidth="0.0" text="Tax - $0.00" textAlignment="CENTER" wrappingWidth="173.13671875">
-               <font>
-                  <Font size="22.0" />
-               </font>
-            </Text>
-            <Text fx:id="totalText" strokeType="OUTSIDE" strokeWidth="0.0" text="Total - $0.00" textAlignment="CENTER" wrappingWidth="173.13671875">
-               <font>
-                  <Font size="22.0" />
-               </font>
-            </Text>
-         </children>
-      </HBox>
-      <HBox alignment="CENTER" layoutY="340.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="59.0" prefWidth="600.0" spacing="20.0">
-         <children>
-            <Button fx:id="mainMenuButton" mnemonicParsing="false" onAction="#backToMainMenu" prefHeight="34.0" prefWidth="123.0" text="Main Menu" />
-            <Button fx:id="cancelSelectedButton" mnemonicParsing="false" onAction="#cancelSelected" prefHeight="34.0" prefWidth="130.0" text="Cancel Order" />
-            <Button mnemonicParsing="false" onAction="#exportStoreOrders" prefHeight="34.0" prefWidth="130.0" text="Export" />
-         </children>
-      </HBox>
-   </children>
+<?import javafx.scene.text.*?>
+<Pane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+      prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1"
+      fx:controller="main.StoreOrderPageController">
+    <children>
+        <ListView fx:id="orderList" layoutX="12.0" layoutY="58.0" onMouseClicked="#update" prefHeight="247.0"
+                  prefWidth="576.0"/>
+        <Text layoutX="12.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Store Orders"
+              textAlignment="CENTER" wrappingWidth="575.9999871253967">
+            <font>
+                <Font size="30.0"/>
+            </font>
+        </Text>
+        <HBox alignment="CENTER" layoutX="12.0" layoutY="312.0" prefHeight="29.0" prefWidth="576.0">
+            <children>
+                <Text fx:id="subtotalText" strokeType="OUTSIDE" strokeWidth="0.0" text="Subtotal - $0.00"
+                      textAlignment="CENTER" wrappingWidth="173.13671875">
+                    <font>
+                        <Font size="22.0"/>
+                    </font>
+                </Text>
+                <Text fx:id="taxText" strokeType="OUTSIDE" strokeWidth="0.0" text="Tax - $0.00" textAlignment="CENTER"
+                      wrappingWidth="173.13671875">
+                    <font>
+                        <Font size="22.0"/>
+                    </font>
+                </Text>
+                <Text fx:id="totalText" strokeType="OUTSIDE" strokeWidth="0.0" text="Total - $0.00"
+                      textAlignment="CENTER" wrappingWidth="173.13671875">
+                    <font>
+                        <Font size="22.0"/>
+                    </font>
+                </Text>
+            </children>
+        </HBox>
+        <HBox alignment="CENTER" layoutY="340.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="59.0" prefWidth="600.0"
+              spacing="20.0">
+            <children>
+                <Button fx:id="mainMenuButton" mnemonicParsing="false" onAction="#backToMainMenu" prefHeight="34.0"
+                        prefWidth="123.0" text="Main Menu"/>
+                <Button fx:id="cancelSelectedButton" mnemonicParsing="false" onAction="#cancelSelected"
+                        prefHeight="34.0" prefWidth="130.0" text="Cancel Order"/>
+                <Button mnemonicParsing="false" onAction="#exportStoreOrders" prefHeight="34.0" prefWidth="130.0"
+                        text="Export"/>
+            </children>
+        </HBox>
+    </children>
 </Pane>

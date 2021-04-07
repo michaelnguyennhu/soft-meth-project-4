@@ -1,6 +1,5 @@
 package main;
 
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -15,28 +14,33 @@ import java.io.File;
 import java.io.FileWriter;
 import java.util.ArrayList;
 
-public class StoreOrderPageController {
+/**
+ * TODO: FILL IN CLASS DESCRIPTIOn
+ *
+ * @author Alexander Xie
+ * @author Michael Nguyen
+ */
+
+
+public class StoreOrderPageController
+{
     private final static float TAX = 0.06625f;
     private final static float TAX_MULTIPLIER = 1.06625f;
-
+    @FXML
+    public ListView orderList;
     private MainMenuController mainMenuController;
     private Stage primaryStage;
-
-
     @FXML
     private Text subtotalText;
     @FXML
     private Text taxText;
     @FXML
     private Text totalText;
-
     @FXML
     private Button cancelSelectedButton;
 
-    @FXML
-    public ListView orderList;
-
-    public void start(Stage primaryStage, MainMenuController mainMenuData) {
+    public void start(Stage primaryStage, MainMenuController mainMenuData)
+    {
 
         mainMenuController = mainMenuData;
         orderList.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
@@ -45,17 +49,21 @@ public class StoreOrderPageController {
         this.primaryStage = primaryStage;
     }
 
-    public void setUpList(){
-        for (int i = 0; i < mainMenuController.getAllStoreOrders().getNumOrders(); i++){
+    public void setUpList()
+    {
+        for ( int i = 0; i < mainMenuController.getAllStoreOrders().getNumOrders(); i++ )
+        {
             Order order = mainMenuController.getAllStoreOrders().getOrdersList()[i];
-            orderList.getItems().add( "Order number - " + order.getOrderNumber() + " " + combinedMenuItemGroupStrings(generateMenuItemGroups(order.toArrayList())) + " - Total Price: " + Utility.ToDollars(order.getPriceTotal() * (TAX_MULTIPLIER))) ;
+            orderList.getItems().add("Order number - " + order.getOrderNumber() + " " + combinedMenuItemGroupStrings(generateMenuItemGroups(order.toArrayList())) + " - Total Price: " + Utility.ToDollars(order.getPriceTotal() * (TAX_MULTIPLIER)));
         }
     }
 
-    public String combinedMenuItemGroupStrings(ArrayList<MenuItemGroup> groups){
+    public String combinedMenuItemGroupStrings(ArrayList< MenuItemGroup > groups)
+    {
         String concatDescriptions = "";
 
-        for(int i = 0; i < groups.size(); i++){
+        for ( int i = 0; i < groups.size(); i++ )
+        {
             concatDescriptions += groups.get(i).toString() + "; ";
         }
 
@@ -64,14 +72,18 @@ public class StoreOrderPageController {
         return concatDescriptions;
     }
 
-    public ArrayList<MenuItemGroup> generateMenuItemGroups(ArrayList<MenuItem> menuItems){
-        ArrayList<MenuItemGroup> group = new ArrayList<>();
+    public ArrayList< MenuItemGroup > generateMenuItemGroups(ArrayList< MenuItem > menuItems)
+    {
+        ArrayList< MenuItemGroup > group = new ArrayList<>();
 
-        while(menuItems.size() > 0){
+        while ( menuItems.size() > 0 )
+        {
             int amount = 1;
 
-            for(int i = menuItems.size() - 1; i > 0; i--){
-                if(menuItems.get(i).equals(menuItems.get(0))){
+            for ( int i = menuItems.size() - 1; i > 0; i-- )
+            {
+                if ( menuItems.get(i).equals(menuItems.get(0)) )
+                {
                     amount++;
                     menuItems.remove(i);
                 }
@@ -85,11 +97,13 @@ public class StoreOrderPageController {
         return group;
     }
 
-    public void backToMainMenu(){
+    public void backToMainMenu()
+    {
         primaryStage.close();
     }
 
-    public void update(){
+    public void update()
+    {
         int selectedOrder = orderList.getSelectionModel().getSelectedIndex();
         cancelSelectedButton.setDisable(selectedOrder == -1);
 
@@ -98,11 +112,12 @@ public class StoreOrderPageController {
         float total = subtotal + tax;
 
         subtotalText.setText("Subtotal - " + Utility.ToDollars(subtotal));
-        taxText.setText("Tax - " +  Utility.ToDollars(tax));
+        taxText.setText("Tax - " + Utility.ToDollars(tax));
         totalText.setText("Total - " + Utility.ToDollars(total));
     }
 
-    public void cancelSelected(){
+    public void cancelSelected()
+    {
         Order order = mainMenuController.getAllStoreOrders().getOrdersList()[orderList.getSelectionModel().getSelectedIndex()];
         mainMenuController.getAllStoreOrders().remove(order);
 
@@ -114,7 +129,8 @@ public class StoreOrderPageController {
         Popup.Display("Successful Remove", "Removed " + order.getOrderNumber() + " from order list!");
     }
 
-    public void exportStoreOrders(ActionEvent action){
+    public void exportStoreOrders(ActionEvent action)
+    {
         try
         {
             FileChooser chooser = new FileChooser();
@@ -128,7 +144,8 @@ public class StoreOrderPageController {
             {
                 Popup.Display("Invalid File", "Invalid File Selected. Not exporting.");
                 return;
-            }else{
+            } else
+            {
 
                 if ( !file.exists() )
                 {
@@ -147,15 +164,17 @@ public class StoreOrderPageController {
 
                     String output = "";
                     Order[] orders = mainMenuController.getAllStoreOrders().getOrdersList();
-                    for(int i = 0 ; i < mainMenuController.getAllStoreOrders().getNumOrders(); i++){
+                    for ( int i = 0; i < mainMenuController.getAllStoreOrders().getNumOrders(); i++ )
+                    {
                         output += "Order number - " + orders[i].getOrderNumber();
                         output += " | Sub Total - " + Utility.ToDollars(orders[i].getPriceTotal());
                         output += " | Tax - " + Utility.ToDollars(orders[i].getPriceTotal() * TAX);
                         output += " | Total Price - " + Utility.ToDollars(orders[i].getPriceTotal() * TAX_MULTIPLIER);
 
-                        ArrayList<MenuItemGroup> itemGroups = generateMenuItemGroups(orders[i].toArrayList());
+                        ArrayList< MenuItemGroup > itemGroups = generateMenuItemGroups(orders[i].toArrayList());
 
-                        for(int j = 0; j < itemGroups.size(); j++){
+                        for ( int j = 0; j < itemGroups.size(); j++ )
+                        {
                             output += "\n\t" + itemGroups.get(j).toString();
                         }
                         output += "\n\n";
@@ -177,7 +196,6 @@ public class StoreOrderPageController {
             }
 
 
-;
         } catch ( Exception e )
         {
             Popup.DisplayError(e.getMessage());

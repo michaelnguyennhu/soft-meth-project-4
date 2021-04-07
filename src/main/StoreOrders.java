@@ -1,6 +1,15 @@
 package main;
 
-public class StoreOrders implements Customizable{
+/**
+ * TODO: FILL IN CLASS DESCRIPTIOn
+ *
+ * @author Alexander Xie
+ * @author Michael Nguyen
+ */
+
+
+public class StoreOrders implements Customizable
+{
 
     private final int GROWTH_AMOUNT = 4;
     private Order[] ordersList;
@@ -9,38 +18,47 @@ public class StoreOrders implements Customizable{
     private int numOrdersInHistory; //use this as the orderNumber
 
 
-    public StoreOrders(){
+    public StoreOrders()
+    {
         this.ordersList = new Order[0];
         this.numOrders = 0;
         this.numOrdersInHistory = 0;
     }
 
-    public int getNumOrdersInHistory(){
+    public int getNumOrdersInHistory()
+    {
         return this.numOrdersInHistory;
     }
 
-    public Order[] getOrdersList(){
+    public Order[] getOrdersList()
+    {
         return this.ordersList;
     }
 
-    public int getNumOrders(){
+    public int getNumOrders()
+    {
         return this.numOrders;
     }
 
-    private int findStore(Order order){
+    private int findStore(Order order)
+    {
 
-        for (int i = 0; i < numOrders; i++){
-            if (ordersList[i].getOrderNumber() == order.getOrderNumber()){
+        for ( int i = 0; i < numOrders; i++ )
+        {
+            if ( ordersList[i].getOrderNumber() == order.getOrderNumber() )
+            {
                 return i;
             }
         }
         return -1;
     }
 
-    private void growStore(){
+    private void growStore()
+    {
         Order[] increasedArr = new Order[ordersList.length + GROWTH_AMOUNT];
 
-        for (int i = 0; i < ordersList.length; i++){
+        for ( int i = 0; i < ordersList.length; i++ )
+        {
             increasedArr[i] = ordersList[i];
         }
 
@@ -48,11 +66,13 @@ public class StoreOrders implements Customizable{
     }
 
     @Override
-    public boolean add(Object obj){
-        if ( !(obj instanceof Order) ){
+    public boolean add(Object obj)
+    {
+        if ( !(obj instanceof Order) )
+        {
             return false;
         }
-        Order newOrder = (Order) obj;
+        Order newOrder = ( Order ) obj;
 
         while ( this.numOrders >= this.ordersList.length )
         {
@@ -69,19 +89,23 @@ public class StoreOrders implements Customizable{
     }
 
     @Override
-    public boolean remove(Object obj){
-        if ( !(obj instanceof Order) ){
+    public boolean remove(Object obj)
+    {
+        if ( !(obj instanceof Order) )
+        {
             return false;
         }
-        Order removeOrder = (Order) obj;
+        Order removeOrder = ( Order ) obj;
 
         int index = findStore(removeOrder);
 
-        if (index == -1){
+        if ( index == -1 )
+        {
             return false;
         }
 
-        for (int i = index + 1; i < numOrders; i++){
+        for ( int i = index + 1; i < numOrders; i++ )
+        {
             ordersList[i - 1] = ordersList[i];
         }
         numOrders--;

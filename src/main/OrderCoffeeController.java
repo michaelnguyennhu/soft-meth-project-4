@@ -6,20 +6,22 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import java.text.DecimalFormat;
+/**
+ * TODO: FILL IN CLASS DESCRIPTIOn
+ *
+ * @author Alexander Xie
+ * @author Michael Nguyen
+ */
 
-public class OrderCoffeeController {
-    private Stage primaryStage;
 
-
-    private Coffee coffee;
-
-
+public class OrderCoffeeController
+{
     private static final int SHORT = 0;
     private static final int TALL = 1;
     private static final int GRANDE = 2;
     private static final int VENTI = 3;
-
+    private Stage primaryStage;
+    private Coffee coffee;
     @FXML
     private ComboBox sizeComboBox;
 
@@ -39,7 +41,8 @@ public class OrderCoffeeController {
 
     private MainMenuController mainMenuController;
 
-    public void start(Stage primaryStage, MainMenuController mainMenuData) {
+    public void start(Stage primaryStage, MainMenuController mainMenuData)
+    {
 
         mainMenuController = mainMenuData;
 
@@ -53,16 +56,19 @@ public class OrderCoffeeController {
         this.primaryStage = primaryStage;
     }
 
-    public void backToMainMenu(){
+    public void backToMainMenu()
+    {
         primaryStage.close();
     }
 
-    public void addToOrder(){
-        if (sizeComboBox.getSelectionModel().isEmpty()){
+    public void addToOrder()
+    {
+        if ( sizeComboBox.getSelectionModel().isEmpty() )
+        {
             Popup.DisplayError("Must select a size.");
             return;
-        }
-        else {
+        } else
+        {
             coffee.changeSize(sizeComboBox.getSelectionModel().getSelectedIndex());
             mainMenuController.getCurrentOrder().add(coffee);
 
@@ -81,11 +87,13 @@ public class OrderCoffeeController {
     }
 
 
-    public float getSubtotal(){
-        if (sizeComboBox.getSelectionModel().isEmpty()){
+    public float getSubtotal()
+    {
+        if ( sizeComboBox.getSelectionModel().isEmpty() )
+        {
             return -1f;
-        }
-        else {
+        } else
+        {
             coffee.changeSize(sizeComboBox.getSelectionModel().getSelectedIndex());
             return coffee.getItemPrice();
 
@@ -93,112 +101,132 @@ public class OrderCoffeeController {
     }
 
 
-    public void changeSubtotalTextField(){
+    public void changeSubtotalTextField()
+    {
         Float subtotal = getSubtotal();
-        if (subtotal != -1f){
+        if ( subtotal != -1f )
+        {
             String newSubtotal = Utility.ToDollars(subtotal);
             subtotalTextField.setText(newSubtotal);
         }
     }
 
-    public void sizeSelected(){
+    public void sizeSelected()
+    {
         changeSubtotalTextField();
     }
 
-    public void creamChecked(){
+    public void creamChecked()
+    {
 
         AddIns tempAddIns = new AddIns();
         tempAddIns.setCream(true);
 
-        if (creamCheckBox.isSelected()){
+        if ( creamCheckBox.isSelected() )
+        {
             coffee.add(tempAddIns);
-        }
-        else {
+        } else
+        {
             coffee.remove(tempAddIns);
         }
 
-        if (sizeComboBox.getSelectionModel().isEmpty()){
+        if ( sizeComboBox.getSelectionModel().isEmpty() )
+        {
             return;
-        }
-        else {
+        } else
+        {
             changeSubtotalTextField();
         }
 
     }
-    public void syrupChecked(){
+
+    public void syrupChecked()
+    {
         AddIns tempAddIns = new AddIns();
         tempAddIns.setSyrup(true);
 
-        if (syrupCheckBox.isSelected()){
+        if ( syrupCheckBox.isSelected() )
+        {
             coffee.add(tempAddIns);
-        }
-        else {
+        } else
+        {
             coffee.remove(tempAddIns);
         }
 
-        if (sizeComboBox.getSelectionModel().isEmpty()){
+        if ( sizeComboBox.getSelectionModel().isEmpty() )
+        {
             return;
-        }
-        else {
+        } else
+        {
             changeSubtotalTextField();
         }
     }
-    public void milkChecked(){
+
+    public void milkChecked()
+    {
         AddIns tempAddIns = new AddIns();
         tempAddIns.setMilk(true);
 
-        if (milkCheckBox.isSelected()){
+        if ( milkCheckBox.isSelected() )
+        {
             coffee.add(tempAddIns);
-        }
-        else {
+        } else
+        {
             coffee.remove(tempAddIns);
         }
 
-        if (sizeComboBox.getSelectionModel().isEmpty()){
+        if ( sizeComboBox.getSelectionModel().isEmpty() )
+        {
             return;
-        }
-        else {
+        } else
+        {
             changeSubtotalTextField();
         }
     }
-    public void caramelChecked(){
+
+    public void caramelChecked()
+    {
         AddIns tempAddIns = new AddIns();
         tempAddIns.setCaramel(true);
 
-        if (caramelCheckBox.isSelected()){
+        if ( caramelCheckBox.isSelected() )
+        {
             coffee.add(tempAddIns);
-        }
-        else {
+        } else
+        {
             coffee.remove(tempAddIns);
         }
 
-        if (sizeComboBox.getSelectionModel().isEmpty()){
+        if ( sizeComboBox.getSelectionModel().isEmpty() )
+        {
             return;
-        }
-        else {
+        } else
+        {
             changeSubtotalTextField();
         }
     }
-    public void whippedCreamChecked(){
+
+    public void whippedCreamChecked()
+    {
         AddIns tempAddIns = new AddIns();
         tempAddIns.setWhippedCream(true);
 
-        if (whippedCreamCheckBox.isSelected()){
+        if ( whippedCreamCheckBox.isSelected() )
+        {
             coffee.add(tempAddIns);
-        }
-        else {
+        } else
+        {
             coffee.remove(tempAddIns);
         }
 
-        if (sizeComboBox.getSelectionModel().isEmpty()){
+        if ( sizeComboBox.getSelectionModel().isEmpty() )
+        {
             return;
-        }
-        else {
+        } else
+        {
             changeSubtotalTextField();
         }
     }
-
-
 
 
 }

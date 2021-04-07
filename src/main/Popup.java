@@ -8,9 +8,19 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+/**
+ * TODO: FILL IN CLASS DESCRIPTIOn
+ *
+ * @author Alexander Xie
+ * @author Michael Nguyen
+ */
 
-public class Popup {
-    public static void Display(String title, String message){
+
+
+public class Popup
+{
+    public static void Display(String title, String message)
+    {
         Stage popupStage = new Stage();
 
         popupStage.initModality(Modality.APPLICATION_MODAL);
@@ -35,7 +45,8 @@ public class Popup {
 
     }
 
-    public static void DisplayError(String message){
+    public static void DisplayError(String message)
+    {
         Display("Error", message);
     }
 }

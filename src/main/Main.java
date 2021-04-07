@@ -6,10 +6,25 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-public class Main extends Application {
+/**
+ * TODO: FILL IN CLASS DESCRIPTIOn
+ *
+ * @author Alexander Xie
+ * @author Michael Nguyen
+ */
+
+
+public class Main extends Application
+{
+
+    public static void main(String[] args)
+    {
+        launch(args);
+    }
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) throws Exception
+    {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/main/mainMenu.fxml"));
         Pane root = loader.load();
@@ -22,10 +37,5 @@ public class Main extends Application {
         primaryStage.setTitle("RU Cafe: Main Menu");
         primaryStage.setResizable(false);
         primaryStage.show();
-    }
-
-
-    public static void main(String[] args) {
-        launch(args);
     }
 }

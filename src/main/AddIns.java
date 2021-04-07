@@ -1,7 +1,15 @@
 package main;
 
-public class AddIns {
+/**
+ * Used to keep track of the status of add ins.
+ *
+ * @author Alexander Xie
+ * @author Michael Nguyen
+ */
 
+public class AddIns
+{
+    // Enabled add ins for coffee
     private boolean cream;
     private boolean syrup;
     private boolean milk;
@@ -9,7 +17,11 @@ public class AddIns {
     private boolean whippedCream;
 
 
-    public AddIns(){
+    /**
+     * Construct. Defaults all add ins to false, or none.
+     */
+    public AddIns()
+    {
         this.cream = false;
         this.syrup = false;
         this.milk = false;
@@ -17,21 +29,32 @@ public class AddIns {
         this.whippedCream = false;
     }
 
-    public int getTotalAddIns(){
+    /**
+     * Get the total amount of add ins enabled.
+     *
+     * @return The amount of add ins enabled
+     */
+    public int getTotalAddIns()
+    {
         int totalAddIns = 0;
-        if (this.cream){
+        if ( this.cream )
+        {
             totalAddIns++;
         }
-        if (this.syrup){
+        if ( this.syrup )
+        {
             totalAddIns++;
         }
-        if (this.milk){
+        if ( this.milk )
+        {
             totalAddIns++;
         }
-        if (this.caramel){
+        if ( this.caramel )
+        {
             totalAddIns++;
         }
-        if (this.whippedCream){
+        if ( this.whippedCream )
+        {
             totalAddIns++;
         }
 
@@ -39,72 +62,132 @@ public class AddIns {
     }
 
 
-    public boolean getCream(){
+    /**
+     * Get the status of cream. Added is true.
+     * @return
+     */
+    public boolean getCream()
+    {
         return this.cream;
     }
-    public boolean getSyrup(){
+
+    /**
+     * Set the status of cream. Added is true.
+     * @param added - True is added, false is not added.
+     */
+    public void setCream(boolean added)
+    {
+        this.cream = added;
+    }
+
+    /**
+     * Get the status of cream. Added is true.
+     * @return
+     */
+    public boolean getSyrup()
+    {
         return this.syrup;
     }
-    public boolean getMilk(){
+
+    /**
+     * Set the status of syrup. Added is true.
+     * @param added - True is added, false is not added.
+     */
+    public void setSyrup(boolean added)
+    {
+        this.syrup = added;
+    }
+
+    /**
+     * Get the status of milk. Added is true.
+     * @return
+     */
+    public boolean getMilk()
+    {
         return this.milk;
     }
-    public boolean getCaramel(){
+
+    /**
+     * Set the status of milk. Added is true.
+     * @param added - True is added, false is not added.
+     */
+    public void setMilk(boolean added)
+    {
+        this.milk = added;
+    }
+
+    /**
+     * Get the status of caramel. Added is true.
+     * @return
+     */
+    public boolean getCaramel()
+    {
         return this.caramel;
     }
-    public boolean getWhippedCream(){
+
+    /**
+     * Set the status of caramel. Added is true.
+     * @param added - True is added, false is not added.
+     */
+    public void setCaramel(boolean added)
+    {
+        this.caramel = added;
+    }
+
+    /**
+     * Get the status of whipped cream. Added is true.
+     * @return
+     */
+    public boolean getWhippedCream()
+    {
         return this.whippedCream;
     }
 
-
-    public void setCream(boolean added){
-        this.cream = added;
-    }
-    public void setSyrup(boolean added){
-        this.syrup = added;
-    }
-    public void setMilk(boolean added){
-        this.milk = added;
-    }
-    public void setCaramel(boolean added){
-        this.caramel = added;
-    }
-    public void setWhippedCream(boolean added){
+    /**
+     * Set the status of syrup. Added is true.
+     * @param added - True is added, false is not added.
+     */
+    public void setWhippedCream(boolean added)
+    {
         this.whippedCream = added;
     }
 
 
     @Override
-    public boolean equals(Object obj) {
-        if ( !(obj instanceof AddIns) ){
+    public boolean equals(Object obj)
+    {
+        if ( !(obj instanceof AddIns) )
+        {
             return false;
         }
-        AddIns otherAddIns = (AddIns) obj;
+        AddIns otherAddIns = ( AddIns ) obj;
 
-        if ( (this.cream == otherAddIns.getCream()) && (this.syrup == otherAddIns.getSyrup()) && (this.milk == otherAddIns.getMilk()) && (this.caramel == otherAddIns.getCaramel()) && (this.whippedCream == otherAddIns.getWhippedCream()) ) {
-            return true;
-        }
-        else {
-            return false;
-        }
+        return (this.cream == otherAddIns.getCream()) && (this.syrup == otherAddIns.getSyrup()) && (this.milk == otherAddIns.getMilk()) && (this.caramel == otherAddIns.getCaramel()) && (this.whippedCream == otherAddIns.getWhippedCream());
 
     }
 
     @Override
-    public String toString() {
+    public String toString()
+    {
         String addInString = "";
-        if (this.cream){
+        if ( this.cream )
+        {
             addInString = addInString + "Cream:";
         }
-        if (this.syrup){
+        if ( this.syrup )
+        {
             addInString = addInString + "Syrup:";
         }
-        if (this.milk){
+        if ( this.milk )
+        {
             addInString = addInString + "Milk:";
         }
-        if (this.caramel){
+        if ( this.caramel )
+        {
             addInString = addInString + "Caramel:";
         }
-        if (this.cream){
+        if ( this.cream )
+        {
             addInString = addInString + "Cream:";
         }
 

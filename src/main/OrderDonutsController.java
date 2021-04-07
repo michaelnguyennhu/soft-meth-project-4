@@ -5,25 +5,27 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import java.text.DecimalFormat;
+/**
+ * TODO: FILL IN CLASS DESCRIPTIOn
+ *
+ * @author Alexander Xie
+ * @author Michael Nguyen
+ */
 
-public class OrderDonutsController {
-    private Stage primaryStage;
 
-    private MainMenuController mainMenuController;
-
+public class OrderDonutsController
+{
     private static final int YEAST = 0;
     private static final float YEAST_PRICE = 1.39f;
     private static final int CAKE = 1;
     private static final float CAKE_PRICE = 1.59f;
     private static final int HOLE = 2;
     private static final float HOLE_PRICE = 0.33f;
-
     private static final int GLAZED = 0;
     private static final int CHOCOLATE = 1;
     private static final int VANILLA = 2;
-
-
+    private Stage primaryStage;
+    private MainMenuController mainMenuController;
     @FXML
     private TextField quantityTextField;
     @FXML
@@ -34,7 +36,8 @@ public class OrderDonutsController {
     private ComboBox flavorComboBox;
 
 
-    public void start(Stage primaryStage, MainMenuController mainMenuData) throws Exception{
+    public void start(Stage primaryStage, MainMenuController mainMenuData) throws Exception
+    {
 
         mainMenuController = mainMenuData;
 
@@ -44,15 +47,18 @@ public class OrderDonutsController {
         this.primaryStage = primaryStage;
     }
 
-    public void backToMainMenu(){
+    public void backToMainMenu()
+    {
         primaryStage.close();
     }
 
-    public float getSubtotal(){
-        if (donutTypeComboBox.getSelectionModel().isEmpty() || flavorComboBox.getSelectionModel().isEmpty()){
+    public float getSubtotal()
+    {
+        if ( donutTypeComboBox.getSelectionModel().isEmpty() || flavorComboBox.getSelectionModel().isEmpty() )
+        {
             return -1f;
-        }
-        else {
+        } else
+        {
             Donut donut = new Donut(donutTypeComboBox.getSelectionModel().getSelectedIndex(), flavorComboBox.getSelectionModel().getSelectedIndex());
             Float quantity = Float.parseFloat(quantityTextField.getText());
 
@@ -62,33 +68,41 @@ public class OrderDonutsController {
     }
 
 
-    public void changeSubtotalTextField(){
+    public void changeSubtotalTextField()
+    {
         Float subtotal = getSubtotal();
-        if (subtotal != -1f){
+        if ( subtotal != -1f )
+        {
             String newSubtotal = Utility.ToDollars(subtotal);
             subtotalTextField.setText(newSubtotal);
         }
     }
 
-    public void donutTypeChosen(){
+    public void donutTypeChosen()
+    {
         changeSubtotalTextField();
     }
 
-    public void flavorChosen(){
+    public void flavorChosen()
+    {
         changeSubtotalTextField();
     }
 
 
-    public void addQuantity(){
+    public void addQuantity()
+    {
         int quantity = Integer.parseInt(quantityTextField.getText());
         quantity++;
         quantityTextField.setText("" + quantity);
 
         changeSubtotalTextField();
     }
-    public void minusQuantity(){
+
+    public void minusQuantity()
+    {
         int quantity = Integer.parseInt(quantityTextField.getText());
-        if (quantity == 0){
+        if ( quantity == 0 )
+        {
             Popup.DisplayError("Quantity cannot be negative.");
             return;
         }
@@ -98,27 +112,32 @@ public class OrderDonutsController {
         changeSubtotalTextField();
     }
 
-    public void addToOrder(){
+    public void addToOrder()
+    {
 
-        if (donutTypeComboBox.getSelectionModel().isEmpty() || flavorComboBox.getSelectionModel().isEmpty()){
+        if ( donutTypeComboBox.getSelectionModel().isEmpty() || flavorComboBox.getSelectionModel().isEmpty() )
+        {
             Popup.DisplayError("Must select donut type AND donut flavor.");
             return;
-        }
-        else {
+        } else
+        {
             int quantity = Integer.parseInt(quantityTextField.getText());
-            if (quantity == 0){
+            if ( quantity == 0 )
+            {
                 Popup.DisplayError("Quantity must be greater than 0.");
                 return;
-            }
-            else {
-                for (int i = 0; i < quantity; i++){
+            } else
+            {
+                for ( int i = 0; i < quantity; i++ )
+                {
                     Donut donut = new Donut(donutTypeComboBox.getSelectionModel().getSelectedIndex(), flavorComboBox.getSelectionModel().getSelectedIndex());
                     mainMenuController.getCurrentOrder().add(donut);
                 }
-                if (quantity == 1){
+                if ( quantity == 1 )
+                {
                     Popup.Display("Donuts", "Donut has been added to the current order.");
-                }
-                else {
+                } else
+                {
                     Popup.Display("Donuts", "Donuts have been added to the current order.");
                 }
 

@@ -9,7 +9,15 @@ import javafx.scene.text.Text;
 
 import java.io.IOException;
 
-public class OrderDetailListCell extends ListCell<MenuItemGroup>
+/**
+ * TODO: FILL IN CLASS DESCRIPTIOn
+ *
+ * @author Alexander Xie
+ * @author Michael Nguyen
+ */
+
+
+public class OrderDetailListCell extends ListCell< MenuItemGroup >
 {
     @FXML
     private Text itemNameText;
@@ -34,17 +42,22 @@ public class OrderDetailListCell extends ListCell<MenuItemGroup>
     {
 
         super.updateItem(menuItem, b);
-        if(this.isEmpty() || menuItem == null){
+        if ( this.isEmpty() || menuItem == null )
+        {
             this.setText(null);
             this.setGraphic(null);
-        }else{
-            if(fxmlLoader == null){
+        } else
+        {
+            if ( fxmlLoader == null )
+            {
                 fxmlLoader = new FXMLLoader(this.getClass().getResource("/main/orderDetail.fxml"));
                 fxmlLoader.setController(this);
 
-                try{
+                try
+                {
                     fxmlLoader.load();
-                } catch( IOException e){
+                } catch ( IOException e )
+                {
                     Popup.DisplayError(e.getMessage());
                 }
 
@@ -56,7 +69,8 @@ public class OrderDetailListCell extends ListCell<MenuItemGroup>
 
             String[] details = menuItem.getDetails();
             addinVBox.getChildren().removeAll();
-            for(int i = 0; i < details.length; i++){
+            for ( int i = 0; i < details.length; i++ )
+            {
                 Text duplicateText = new Text("- " + details[i]);
                 duplicateText.setFont(addinText.getFont());
                 duplicateText.setStroke(addinText.getStroke());

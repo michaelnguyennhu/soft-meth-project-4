@@ -1,19 +1,21 @@
 package main;
 
-import javafx.beans.InvalidationListener;
 import javafx.collections.FXCollections;
-import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
-import javafx.scene.control.SelectionMode;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.util.Callback;
 
-import java.util.*;
+import java.util.ArrayList;
+
+/**
+ * TODO: FILL IN CLASS DESCRIPTIOn
+ *
+ * @author Alexander Xie
+ * @author Michael Nguyen
+ */
 
 public class CurrentOrderDetailController
 {
@@ -34,18 +36,18 @@ public class CurrentOrderDetailController
     private Text totalText;
 
 
-
     private Stage primaryStage;
 
     private MainMenuController mainMenuController;
 
-    public void start(Stage primaryStage, MainMenuController mainMenuData) {
+    public void start(Stage primaryStage, MainMenuController mainMenuData)
+    {
 
         mainMenuController = mainMenuData;
 
         this.primaryStage = primaryStage;
 
-        ObservableList<MenuItemGroup> menuItems = FXCollections.observableList(generateMenuItemGroups());
+        ObservableList< MenuItemGroup > menuItems = FXCollections.observableList(generateMenuItemGroups());
 
         orderList.setCellFactory(listView -> new OrderDetailListCell());
         orderList.setItems(menuItems);
@@ -54,12 +56,14 @@ public class CurrentOrderDetailController
     }
 
 
-    public void backToMainMenu(){
+    public void backToMainMenu()
+    {
         primaryStage.close();
     }
 
     @FXML
-    public void update() {
+    public void update()
+    {
 
 
         ObservableList selectedOrders = orderList.getSelectionModel().getSelectedIndices();
@@ -73,19 +77,23 @@ public class CurrentOrderDetailController
 
 
         subtotalText.setText("Subtotal - " + Utility.ToDollars(subtotal));
-        taxText.setText("Tax - " +  Utility.ToDollars(tax));
+        taxText.setText("Tax - " + Utility.ToDollars(tax));
         totalText.setText("Total - " + Utility.ToDollars(total));
     }
 
-    public ArrayList<MenuItemGroup> generateMenuItemGroups(){
-        ArrayList<MenuItemGroup> group = new ArrayList<>();
-        ArrayList<MenuItem> menuItems = mainMenuController.getCurrentOrder().toArrayList();
+    public ArrayList< MenuItemGroup > generateMenuItemGroups()
+    {
+        ArrayList< MenuItemGroup > group = new ArrayList<>();
+        ArrayList< MenuItem > menuItems = mainMenuController.getCurrentOrder().toArrayList();
 
-        while(menuItems.size() > 0){
+        while ( menuItems.size() > 0 )
+        {
             int amount = 1;
 
-            for(int i = menuItems.size() - 1; i > 0; i--){
-                if(menuItems.get(i).equals(menuItems.get(0))){
+            for ( int i = menuItems.size() - 1; i > 0; i-- )
+            {
+                if ( menuItems.get(i).equals(menuItems.get(0)) )
+                {
                     amount++;
                     menuItems.remove(i);
                 }
@@ -100,7 +108,8 @@ public class CurrentOrderDetailController
     }
 
     @FXML
-    public void removeSelected() {
+    public void removeSelected()
+    {
         String itemRemovedName = orderList.getSelectionModel().getSelectedItem().toString();
 
 
@@ -116,13 +125,14 @@ public class CurrentOrderDetailController
     }
 
     @FXML
-    public void placeOrder() {
+    public void placeOrder()
+    {
 
         mainMenuController.getAllStoreOrders().add(mainMenuController.getCurrentOrder());
         Popup.Display("Order Placed", "The current order has been placed");
         mainMenuController.newOrder();
 
-        ObservableList<MenuItem> menuItems = FXCollections.observableList(mainMenuController.getCurrentOrder().toArrayList());
+        ObservableList< MenuItem > menuItems = FXCollections.observableList(mainMenuController.getCurrentOrder().toArrayList());
 
         orderList.setCellFactory(listView -> new OrderDetailListCell());
         orderList.setItems(menuItems);

@@ -2,33 +2,47 @@ package main;
 
 import java.util.ArrayList;
 
-public class Order implements Customizable{
+/**
+ * TODO: FILL IN CLASS DESCRIPTIOn
+ *
+ * @author Alexander Xie
+ * @author Michael Nguyen
+ */
 
-    private int orderNumber;
+
+public class Order implements Customizable
+{
+
+    private final int GROWTH_AMOUNT = 4;
+    private final int orderNumber;
     private MenuItem[] itemsList;
     private int numItems;
 
-    private final int GROWTH_AMOUNT = 4;
-
-    public Order(int newOrderNumber){
+    public Order(int newOrderNumber)
+    {
         this.orderNumber = newOrderNumber;
         this.itemsList = new MenuItem[0];
         this.numItems = 0;
     }
 
-    public int getOrderNumber(){
+    public int getOrderNumber()
+    {
         return this.orderNumber;
     }
 
-    public MenuItem[] getItemsList(){
+    public MenuItem[] getItemsList()
+    {
         return this.itemsList;
     }
 
 
-    private int findOrder(MenuItem menuItem){
+    private int findOrder(MenuItem menuItem)
+    {
 
-        for (int i = 0; i < numItems; i++){
-            if (itemsList[i].equals(menuItem)){
+        for ( int i = 0; i < numItems; i++ )
+        {
+            if ( itemsList[i].equals(menuItem) )
+            {
                 return i;
             }
         }
@@ -36,10 +50,12 @@ public class Order implements Customizable{
     }
 
 
-    private void growOrder(){
+    private void growOrder()
+    {
         MenuItem[] increasedArr = new MenuItem[itemsList.length + GROWTH_AMOUNT];
 
-        for (int i = 0; i < itemsList.length; i++){
+        for ( int i = 0; i < itemsList.length; i++ )
+        {
             increasedArr[i] = itemsList[i];
         }
 
@@ -47,8 +63,10 @@ public class Order implements Customizable{
     }
 
     @Override
-    public boolean add(Object obj){
-        if ( !(obj instanceof MenuItem) ){
+    public boolean add(Object obj)
+    {
+        if ( !(obj instanceof MenuItem) )
+        {
             return false;
         }
 
@@ -58,7 +76,7 @@ public class Order implements Customizable{
             growOrder();
         }
 
-        MenuItem newMenuItem = (MenuItem) obj;
+        MenuItem newMenuItem = ( MenuItem ) obj;
 
         this.numItems++;
         this.itemsList[numItems - 1] = newMenuItem;
@@ -69,21 +87,24 @@ public class Order implements Customizable{
     }
 
 
-
     @Override
-    public boolean remove(Object obj){
-        if ( !(obj instanceof MenuItem) ){
+    public boolean remove(Object obj)
+    {
+        if ( !(obj instanceof MenuItem) )
+        {
             return false;
         }
-        MenuItem removeMenuItem = (MenuItem) obj;
+        MenuItem removeMenuItem = ( MenuItem ) obj;
 
         int index = findOrder(removeMenuItem);
 
-        if (index == -1){
+        if ( index == -1 )
+        {
             return false;
         }
 
-        for (int i = index + 1; i < numItems; i++){
+        for ( int i = index + 1; i < numItems; i++ )
+        {
             itemsList[i - 1] = itemsList[i];
         }
 
@@ -92,20 +113,24 @@ public class Order implements Customizable{
         return true;
     }
 
-    public float getPriceTotal(){
+    public float getPriceTotal()
+    {
         float total = 0;
 
-        for(int i = 0 ; i < numItems; i++){
+        for ( int i = 0; i < numItems; i++ )
+        {
             total += itemsList[i].getItemPrice();
         }
 
         return total;
     }
 
-    public ArrayList<MenuItem> toArrayList(){
-        ArrayList<MenuItem> arrayList = new ArrayList<>();
+    public ArrayList< MenuItem > toArrayList()
+    {
+        ArrayList< MenuItem > arrayList = new ArrayList<>();
 
-        for(int i = 0 ; i < numItems; i++){
+        for ( int i = 0; i < numItems; i++ )
+        {
             arrayList.add(itemsList[i]);
         }
 
