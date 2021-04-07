@@ -7,7 +7,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 /**
- * TODO: FILL IN CLASS DESCRIPTIOn
+ * Controller for the GUI that allows the user to order coffee.
  *
  * @author Alexander Xie
  * @author Michael Nguyen
@@ -16,10 +16,7 @@ import javafx.stage.Stage;
 
 public class OrderCoffeeController
 {
-    private static final int SHORT = 0;
-    private static final int TALL = 1;
-    private static final int GRANDE = 2;
-    private static final int VENTI = 3;
+
     private Stage primaryStage;
     private Coffee coffee;
     @FXML
@@ -41,6 +38,12 @@ public class OrderCoffeeController
 
     private MainMenuController mainMenuController;
 
+    /**
+     * Sets up the sizeComboBox options and selects the first item.
+     * Changes subtotalTextField to reflect the selected coffee size.
+     * @param primaryStage PrimaryStage
+     * @param mainMenuData MainMenuController
+     */
     public void start(Stage primaryStage, MainMenuController mainMenuData)
     {
 
@@ -56,11 +59,17 @@ public class OrderCoffeeController
         this.primaryStage = primaryStage;
     }
 
+    /**
+     * Closes the stage that allows for ordering coffee.
+     */
     public void backToMainMenu()
     {
         primaryStage.close();
     }
 
+    /**
+     * Adds the coffee to the order and resets the stage to default values.
+     */
     public void addToOrder()
     {
         if ( sizeComboBox.getSelectionModel().isEmpty() )
@@ -86,7 +95,10 @@ public class OrderCoffeeController
         }
     }
 
-
+    /**
+     * Gets the subtotal obtained from the coffee values selected.
+     * @return The subtotal of the coffee as a float.
+     */
     public float getSubtotal()
     {
         if ( sizeComboBox.getSelectionModel().isEmpty() )
@@ -100,7 +112,9 @@ public class OrderCoffeeController
         }
     }
 
-
+    /**
+     * Changes subtotalTextField's text to the subtotal calculated by getSubtotal
+     */
     public void changeSubtotalTextField()
     {
         Float subtotal = getSubtotal();
@@ -111,11 +125,16 @@ public class OrderCoffeeController
         }
     }
 
+    /**
+     * Changes subtotalTextField's text
+     */
     public void sizeSelected()
     {
         changeSubtotalTextField();
     }
-
+    /**
+     * Changes subtotalTextField's text
+     */
     public void creamChecked()
     {
 
@@ -139,7 +158,9 @@ public class OrderCoffeeController
         }
 
     }
-
+    /**
+     * Changes subtotalTextField's text
+     */
     public void syrupChecked()
     {
         AddIns tempAddIns = new AddIns();
@@ -161,7 +182,9 @@ public class OrderCoffeeController
             changeSubtotalTextField();
         }
     }
-
+    /**
+     * Changes subtotalTextField's text
+     */
     public void milkChecked()
     {
         AddIns tempAddIns = new AddIns();
@@ -183,7 +206,9 @@ public class OrderCoffeeController
             changeSubtotalTextField();
         }
     }
-
+    /**
+     * Changes subtotalTextField's text
+     */
     public void caramelChecked()
     {
         AddIns tempAddIns = new AddIns();
@@ -205,7 +230,9 @@ public class OrderCoffeeController
             changeSubtotalTextField();
         }
     }
-
+    /**
+     * Changes subtotalTextField's text
+     */
     public void whippedCreamChecked()
     {
         AddIns tempAddIns = new AddIns();
