@@ -25,10 +25,12 @@ public class MenuItem {
         return this.price;
     }
 
+    public String[] getDetails(){
+        return new String[0];
+    }
 
     @Override
     public boolean equals(Object obj){
-
         if ( (this instanceof Coffee) && (obj instanceof Coffee)){
             Coffee thisCoffee = (Coffee) this;
             Coffee otherCoffee = (Coffee) obj;

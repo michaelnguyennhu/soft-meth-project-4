@@ -35,6 +35,7 @@ public class Coffee extends MenuItem implements Customizable {
     }
 
     public void changeSize(int newSize){
+        System.out.println(this.size + " " + newSize);
         this.size = newSize;
     }
 
@@ -135,5 +136,59 @@ public class Coffee extends MenuItem implements Customizable {
             return false;
         }
 
+    }
+
+    @Override
+    public String[] getDetails(){
+        String[] addinsDetail = new String[addIns.getTotalAddIns()];
+        int cur = 0;
+        if (addIns.getCream()){
+            addinsDetail[cur] = "Cream";
+            cur++;
+        }
+
+        if (addIns.getSyrup()){
+            addinsDetail[cur] = "Syrup";
+            cur++;
+        }
+
+        if (addIns.getMilk()){
+            addinsDetail[cur] = "Milk";
+            cur++;
+        }
+
+        if (addIns.getCaramel()){
+            addinsDetail[cur] = "Caramel";
+            cur++;
+        }
+
+        if (addIns.getWhippedCream()){
+            addinsDetail[cur] = "Whipped Cream";
+            cur++;
+        }
+
+        return addinsDetail;
+    }
+
+    @Override
+    public String toString(){
+        String sizeName = "";
+
+        switch(this.size){
+            case SHORT:
+                sizeName = "Short ";
+                break;
+            case TALL:
+                sizeName = "Tall ";
+                break;
+            case GRANDE:
+                sizeName = "Grande ";
+                break;
+            case VENTI:
+                sizeName = "Venti ";
+                break;
+        }
+
+        return sizeName + "Coffee";
     }
 }

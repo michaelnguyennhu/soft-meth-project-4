@@ -71,5 +71,34 @@ public class Donut extends MenuItem {
         }
     }
 
+    @Override
+    public String toString()
+    {
+        String flavorName = "";
 
+        switch(this.donutFlavor){
+            case VANILLA:
+                flavorName = "Vanilla ";
+                break;
+            case GLAZED:
+                flavorName = "Glazed ";
+                break;
+            case CHOCOLATE:
+                flavorName = "Chocolate ";
+                break;
+        }
+
+        switch(this.donutType){
+            case YEAST:
+                return flavorName + "Yeast Donut";
+            case CAKE:
+                return flavorName + "Cake Donut";
+            case HOLE:
+                return flavorName + "Donut Hole";
+            default:
+                return "Unknown Donut";
+        }
+
+
+    }
 }

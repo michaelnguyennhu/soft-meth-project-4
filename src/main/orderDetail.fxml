@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text fx:id="itemNameText" layoutX="14.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Coffee" wrappingWidth="169.13671875">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <HBox alignment="CENTER" layoutX="184.0" layoutY="2.0" maxWidth="1.7976931348623157E308" prefHeight="34.0" prefWidth="227.0">
+         <children>
+            <VBox fx:id="addinVBox" alignment="CENTER_LEFT" prefHeight="34.0" prefWidth="255.0">
+               <children>
+                  <Text fx:id="addinText" strokeType="OUTSIDE" strokeWidth="0.0" text="-Add in one" wrappingWidth="240.08203125">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" />
+               </padding>
+            </VBox>
+         </children>
+      </HBox>
+      <Text fx:id="priceText" layoutX="396.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price - $0.00" textAlignment="CENTER" wrappingWidth="147.13671875">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+   </children>
+</Pane>

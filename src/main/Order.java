@@ -1,5 +1,7 @@
 package main;
 
+import java.util.ArrayList;
+
 public class Order implements Customizable{
 
     private int orderNumber;
@@ -46,6 +48,7 @@ public class Order implements Customizable{
             return false;
         }
 
+
         while ( this.numItems >= this.itemsList.length )
         {
             growOrder();
@@ -61,6 +64,8 @@ public class Order implements Customizable{
 
     }
 
+
+
     @Override
     public boolean remove(Object obj){
         if ( !(obj instanceof MenuItem) ){
@@ -73,9 +78,19 @@ public class Order implements Customizable{
         if (index == -1){
             return false;
         }
+        System.out.println("Found! - " + itemsList[index]);
+
+        for(int i = 0; i < numItems; i++){
+            System.out.println(itemsList[i]);
+        }
 
         for (int i = index + 1; i < numItems; i++){
             itemsList[i - 1] = itemsList[i];
+        }
+
+
+        for(int i = 0; i < numItems; i++){
+            System.out.println(itemsList[i]);
         }
         numItems--;
         return true;
@@ -89,6 +104,16 @@ public class Order implements Customizable{
         }
 
         return total;
+    }
+
+    public ArrayList<MenuItem> toArrayList(){
+        ArrayList<MenuItem> arrayList = new ArrayList<>();
+
+        for(int i = 0 ; i < numItems; i++){
+            arrayList.add(itemsList[i]);
+        }
+
+        return arrayList;
     }
 
 }

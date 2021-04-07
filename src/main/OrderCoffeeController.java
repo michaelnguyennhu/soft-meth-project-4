@@ -64,12 +64,11 @@ public class OrderCoffeeController {
         }
         else {
             coffee.changeSize(sizeComboBox.getSelectionModel().getSelectedIndex());
-
             mainMenuController.getCurrentOrder().add(coffee);
 
 
-            sizeComboBox.getSelectionModel().selectFirst();
             coffee = new Coffee(sizeComboBox.getSelectionModel().getSelectedIndex());
+            sizeComboBox.getSelectionModel().selectFirst();
             creamCheckBox.setSelected(false);
             syrupCheckBox.setSelected(false);
             milkCheckBox.setSelected(false);
