@@ -2,6 +2,14 @@ package main;
 
 import java.text.DecimalFormat;
 
+/**
+ * TODO: FILL IN CLASS DESCRIPTIOn
+ *
+ * @author Alexander Xie
+ * @author Michael Nguyen
+ */
+
+
 public class Utility
 {
     public static String ToDollars(float amount)
