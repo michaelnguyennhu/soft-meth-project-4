@@ -9,7 +9,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
- * TODO: FILL IN CLASS DESCRIPTIOn
+ * Creates popups for errors and confirmation messages.
  *
  * @author Alexander Xie
  * @author Michael Nguyen
@@ -19,6 +19,11 @@ import javafx.stage.Stage;
 
 public class Popup
 {
+    /**
+     * Displays a given message.
+     * @param title The title of the stage created.
+     * @param message The message that will be presented.
+     */
     public static void Display(String title, String message)
     {
         Stage popupStage = new Stage();
@@ -45,6 +50,10 @@ public class Popup
 
     }
 
+    /**
+     * Displays an error message.
+     * @param message Error message that will be presented.
+     */
     public static void DisplayError(String message)
     {
         Display("Error", message);
