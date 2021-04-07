@@ -46,6 +46,10 @@ public class MainMenuController {
         return this.currentOrder;
     }
 
+    public void newOrder(){
+        currentOrder = new Order(storeOrders.getNumOrdersInHistory());
+    }
+
     public StoreOrders getAllStoreOrders(){
         return this.storeOrders;
     }

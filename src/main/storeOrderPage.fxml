@@ -38,7 +38,6 @@
          <children>
             <Button fx:id="mainMenuButton" mnemonicParsing="false" onAction="#backToMainMenu" prefHeight="34.0" prefWidth="123.0" text="Main Menu" />
             <Button mnemonicParsing="false" onAction="#cancelSelected" prefHeight="34.0" prefWidth="130.0" text="Cancel Order" />
-            <Button mnemonicParsing="false" onAction="#importStoreOrders" prefHeight="34.0" prefWidth="130.0" text="Import" />
             <Button mnemonicParsing="false" onAction="#exportStoreOrders" prefHeight="34.0" prefWidth="130.0" text="Export" />
          </children>
       </HBox>

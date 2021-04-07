@@ -126,7 +126,7 @@ public class Order implements Customizable{
         MenuItem currentMenuItem;
         MenuItem[] smallerArr;
         int index;
-        while (copyOrder[0] != null){
+        while (copyOrder.length > 0 && copyOrder[0] != null){
             count = 0;
             currentMenuItem = copyOrder[0];
             for (int i = 0; i < copyOrder.length; i++){
@@ -134,7 +134,7 @@ public class Order implements Customizable{
                     count++;
                 }
             }
-            finalString = finalString + "Quantity: " + count + ": " + currentMenuItem.toString() + "; ";
+            finalString = finalString + "Quantity: " + count + ": " + currentMenuItem.toString() +  ;
 
 
             smallerArr = new MenuItem[copyOrder.length - count];
