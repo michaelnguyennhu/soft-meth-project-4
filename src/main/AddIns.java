@@ -82,7 +82,7 @@ public class AddIns
 
     /**
      * Get the status of cream. Added is true.
-     * @return
+     * @return Status of syrup.
      */
     public boolean getSyrup()
     {
@@ -100,7 +100,7 @@ public class AddIns
 
     /**
      * Get the status of milk. Added is true.
-     * @return
+     * @return Status of milk.
      */
     public boolean getMilk()
     {
@@ -118,7 +118,7 @@ public class AddIns
 
     /**
      * Get the status of caramel. Added is true.
-     * @return
+     * @return Status of caramel
      */
     public boolean getCaramel()
     {
@@ -136,7 +136,7 @@ public class AddIns
 
     /**
      * Get the status of whipped cream. Added is true.
-     * @return
+     * @return Status of whipped cream.
      */
     public boolean getWhippedCream()
     {
